@@ -1,7 +1,7 @@
 // Embergate offline cache (only used when hosted over https)
 // v2: NETWORK-FIRST for the page, so a new index.html on the server is picked up on the next launch.
 // Falls back to the cached copy when offline (or the network is slower than 4 s).
-const CACHE = 'eg-2d91765c85', FILES = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
+const CACHE = 'eg-b0030e965b', FILES = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES.map(f => new Request(f, { cache: 'reload' })))).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('message', e => { if (e.data === 'skipWaiting') self.skipWaiting(); });
