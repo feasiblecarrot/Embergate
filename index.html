@@ -268,7 +268,6 @@ table.ustats{width:100%;border-collapse:collapse;font-size:.82rem}
 table.ustats th,table.ustats td{padding:.3rem .35rem;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;text-align:left}
 table.ustats .num{text-align:right;white-space:nowrap}
 table.ustats tr.tot td{border-top:1px solid rgba(255,200,120,.25)}
-.ustat{margin-top:.15rem;opacity:.9}
 .oor{opacity:.45;filter:grayscale(.7)}
 .oor-why{color:#e6a96b;font-size:.75rem}
 .gbar{height:10px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden;margin:.3rem 0}
@@ -353,6 +352,47 @@ details.more-roster[open] > summary { opacity: .7; }
 .rk.mem{grid-template-columns:1fr auto}
 .rk.mem .nm{min-width:0;overflow-wrap:anywhere}
 .rk.mem .nm .realm{display:inline}
+/* 3.4: covenant-mates can't be attacked or spied on */
+.item.mate{opacity:.78;border-left:2px solid #5d8ab5}
+.mate-why{font-size:.78rem;color:#bcd8f0;background:#1e3a4a55;border:1px solid #5d8ab566;border-radius:6px;padding:.3rem .5rem;margin:.35rem 0}
+.mate-tag{color:#bcd8f0;align-self:center;padding:0 .4rem}
+/* 3.4 covenant tab: header, sticky sub-nav, banner editor */
+svg.banner{display:inline-block;vertical-align:middle;flex:0 0 auto;filter:drop-shadow(0 2px 3px #0009)}
+svg.banner.sm{margin-right:.15rem}
+.ghead{display:flex;gap:.8rem;align-items:center}
+.ghead-b{flex:0 0 auto;line-height:0}
+.ghead-i{flex:1;min-width:0;display:flex;flex-direction:column;gap:.3rem}
+.ghead .gname{margin:0;border:0;padding:0;font-size:1.1rem;line-height:1.2;overflow-wrap:anywhere}
+.ghead-row{display:flex;flex-wrap:wrap;gap:.35rem .5rem;align-items:center}
+.gxp .gbar{margin:.1rem 0 .15rem}
+.gtabs{position:sticky;top:calc(var(--sat) + var(--top-h));z-index:15;display:grid;grid-template-columns:repeat(5,1fr);gap:.25rem;margin:0 0 .6rem;padding:.35rem .25rem;background:#120b0af2;border:1px solid var(--line);border-radius:10px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.gtabs button{position:relative;display:flex;flex-direction:column;align-items:center;gap:.05rem;min-height:46px;padding:.25rem .1rem;background:#1a1110;border-color:var(--line);color:var(--mute);font-size:.64rem;letter-spacing:.02em}
+.gtabs button .gi{font-size:1rem;line-height:1}
+.gtabs button.on{background:linear-gradient(#7a2a16,#4a140c);color:#fff3dc;border-color:#8a5a2b}
+.gtabs .badge{position:absolute;top:2px;right:4px}
+.gchatp{display:flex;flex-direction:column;gap:.4rem;padding:.5rem}
+.gchat{height:52vh;height:52dvh;min-height:260px;flex:none}
+.panel.danger{border-color:#6a2a20}
+label.chk{display:flex;gap:.5rem;align-items:center;margin-top:.7rem;font-size:.9rem}
+label.chk input{width:22px;height:22px;flex:0 0 auto}
+.bn-ed{display:flex;gap:.8rem;align-items:flex-start}
+.bn-prev{position:sticky;top:calc(var(--sat) + var(--top-h) + 70px);flex:0 0 auto;padding:.5rem;background:radial-gradient(#2a1d18,#0e0909);border:1px solid var(--line);border-radius:10px;line-height:0}
+.bn-ctl{flex:1;min-width:0}
+.bn-ctl h3{margin:.55rem 0 .3rem;font-size:.85rem}
+.bn-ctl h3:first-child{margin-top:0}
+.bn-shapes,.bn-ems{display:flex;flex-wrap:wrap;gap:.3rem}
+.bn-opt{min-height:40px;min-width:40px;padding:.2rem;background:#1a1110;border-color:var(--line);color:#d8c9a8;display:inline-flex;align-items:center;justify-content:center}
+.bn-opt.on{border-color:#e0b35a;background:#3a2214;color:#ffe2a0;box-shadow:0 0 0 1px #e0b35a inset}
+.bn-col{display:flex;flex-wrap:wrap;gap:.25rem;align-items:center;margin:.25rem 0 .4rem}
+.bn-col input[type=color]{width:34px;height:30px;padding:0;border:1px solid var(--line);border-radius:6px;background:none}
+.bn-col .sw{width:22px;height:22px;min-height:22px;padding:0;border-radius:50%;border:1px solid #0008;box-shadow:0 0 0 1px #ffffff22}
+.bn-layer{padding:.3rem 0;border-bottom:1px dashed #ffffff14}
+.bn-view{display:flex;gap:.8rem;align-items:center}
+.gsrch-b{line-height:0;margin-right:.1rem}
+@media (max-width:520px){.bn-ed{flex-direction:column;align-items:stretch;gap:.5rem}.bn-prev{top:calc(var(--sat) + var(--top-h) + 64px);z-index:6;display:flex;justify-content:center;padding:.35rem;background:#160e0c;box-shadow:0 6px 12px #000a}.bn-prev svg{width:72px;height:101px}.gtabs button{font-size:.6rem}}
+.bn-col .sw{width:30px;height:30px;min-height:30px;min-width:30px;flex:0 0 30px}
+.mate-act button:disabled,#sr-atk:disabled{background:#2a2320!important;border-color:#3a302a!important;color:#7d6e60!important;filter:grayscale(1);opacity:.65;box-shadow:none}
+.item.thr{position:relative}.item.thr .badge{position:static;display:inline-block;margin-right:.4em;vertical-align:middle}#read-all-ravens:disabled{opacity:.45}
 </style>
 </head>
 <body>
@@ -382,7 +422,7 @@ details.more-roster[open] > summary { opacity: .7; }
   }
 })();
 </script>
-<script>/* Embergate iOS offline build 2026-11-03T01:19:08.881Z */
+<script>/* Embergate iOS offline build 2026-11-03T05:25:30.806Z */
 ;
 // Embergate offline - static rules & lore (shared with the server edition).
 // All names here are original to this game.
@@ -787,7 +827,7 @@ const CFG = {
   GUILD_COST: 10000, GUILD_MAX: 100, GUILD_BASE: 50, GUILD_PER_LVL: 5, MAX_CLANS: 520,
   BOT_COUNT: 12000, PRESIM_TICKS: 180, MAX_CATCHUP_TICKS: 3 * 1440,
   GATE_K: 0.0024, BOSS_K: 0.003,
-  CHAT_KEEP: 160, CHAT_FAR: 720, GUILD_CHAT_KEEP: 120, SAVE_VERSION: 8,
+  CHAT_KEEP: 160, CHAT_FAR: 720, GUILD_CHAT_KEEP: 120, SAVE_VERSION: 8, BOT_MOVE_CHANCE: 0.03, BOT_MOVE_MARGIN: 12, BOT_MOVE_KEEP: 5,
   // v3 (save 5)
   LEVEL_CAP: 100, COST_LEVEL_CAP: 75, LEVEL_RANGE: 10, INTEL_STALE: 360, INTEL_KEEP: 4,
   BOSS_TURNS: 5, ALE_COST: 1000, ALE_COOLDOWN: 60, ALE_PER_DAY: 4, PATRON_TICKS: 180,
@@ -1121,7 +1161,7 @@ class Engine {
       vaultCap: 10000 + k.land * 150 + lvl * 2500, xp: Math.floor(k.xp || 0),
       forgeDiscount: Math.min(0.20, (b.forge || 0) * 0.005), mods: m
     };
-    o.might = Math.round(o.offense + o.defense + (o.spy + o.sentry) * 0.5 + k.land * 15);
+    o.might = this.might(k); // v3.4: one public measure everywhere (land, level, renown)
     k._off = o.offense; k._def = o.defense; k._might = o.might;
     return o;
   }
@@ -1232,15 +1272,15 @@ class Engine {
   resetSchedules() { for (const k of this.bots) { k.on = false; this.planSession(k, this.W.tick + 1); } }
 
   // ---------- rankings index ----------
-  // v3.1 public prestige: built ONLY from public facts (land, level, renown). Replaces "might" everywhere
-  // another realm can see it (might = offense + defense + ... would reveal hidden stats).
-  prestige(k) { const L = this.level(k); return Math.round(k.land * 12 + 30 * L * L + (k.renown || 0) * 0.5); }
+  // Might (v3.4: the single power measure): built ONLY from public facts
+  // (land, level, renown), so showing it in rankings and profiles never reveals hidden army or gold.
+  might(k) { const L = this.level(k); return Math.round(k.land * 12 + 30 * L * L + (k.renown || 0) * 0.5); }
   buildIndex() {
-    // v3.1: realms are indexed by public prestige and by level (for the +/-10 level rule). Hidden stats
+    // v3.1: realms are indexed by public might and by level (for the +/-10 level rule). Hidden stats
     // (offense, defense, gold, army) are never used to order or pick anyone.
     const all = Object.values(this.W.kingdoms);
     let sumOff = 0;
-    for (const k of all) { if (k._might == null || !k.isBot) this.calc(k); if (k.isBot) sumOff += k._off || 0; k._pr = this.prestige(k); }
+    for (const k of all) { if (k._might == null || !k.isBot) this.calc(k); if (k.isBot) sumOff += k._off || 0; k._pr = this.might(k); }
     all.sort((a, b) => b._pr - a._pr);
     this._idx = all; this._pos = {}; all.forEach((k, i) => this._pos[k.id] = i);
     const LB = []; for (let L = 0; L <= CFG.LEVEL_CAP + 1; L++) LB.push([]);
@@ -1456,9 +1496,10 @@ class Engine {
   }
 
   // ---------- war ----------
+  isMate(a, t) { return !!(a && t && a.id !== t.id && a.guildId && a.guildId === t.guildId); }
   canTarget(a, t) {
     if (a.id === t.id) throw new GameError('You cannot attack yourself');
-    if (a.guildId && a.guildId === t.guildId) throw new GameError('They are in your covenant');
+    if (this.isMate(a, t)) throw new GameError(`${t.name} is a guild member (your covenant): you cannot attack, spy on or hex your own covenant-mates`);
     if (this.isProtected(t)) throw new GameError(`${t.name} is still under the Novice Ward`);
     if (!this.inRange(a, t)) throw new GameError(`${t.name} is level ${this.level(t)}; you can only strike realms within ${CFG.LEVEL_RANGE} levels of your own (${this.level(a)})`);
   }
@@ -1521,7 +1562,7 @@ class Engine {
       if (r.eqLoss) r.lines.push(`Equipment destroyed: ${r.eqLoss.join('; ')}.`);
       this.saveReport(r, [a, t]);
       this.note(t, win ? `${a.name} sacked your realm: lost ${fmt(r.gold)} gold and ${r.land} acres.` : `You repelled an attack from ${a.name}!`, win ? 'bad' : 'good');
-      if (a.isBot && !t.isBot) { this.W.lastPlayerHit = this.W.tick; if (win && chance(0.4)) this.queue(rint(10, 120) * 1000, { type: 'mail', from: a.id, to: t.id, subject: 'Your walls', body: fill(pick(CHAT.trash[a.persona] || CHAT.trash.rp), this.vars(a, t, { target: t.name })) }); }
+      if (a.isBot && !t.isBot) { this.W.lastPlayerHit = this.W.tick; this.ravenAttacked(a, t, r, win); }
       if (!a.isBot && t.isBot) this.botReactToPlayerHit(t, a, r);
     }
     const big = win && (involved ? (r.land >= 3 || r.gold > 5000) : (r.land >= 25 || this.rankOf(t) <= 15));
@@ -1614,7 +1655,7 @@ class Engine {
     if (a.id === t.id) throw new GameError('You know your own realm');
     if (a.turns < CFG.SPY_TURNS) throw new GameError(`Spying costs ${CFG.SPY_TURNS} turns`);
     if (!a.units.shade) throw new GameError('Train some Shades first');
-    if (a.guildId && a.guildId === t.guildId) throw new GameError('They are in your covenant');
+    if (this.isMate(a, t)) throw new GameError(`${t.name} is a guild member (your covenant): you cannot attack, spy on or hex your own covenant-mates`);
     if (!this.inRange(a, t)) throw new GameError(`${t.name} is level ${this.level(t)}; Shades only go after realms within ${CFG.LEVEL_RANGE} levels of yours (${this.level(a)})`);
     a.turns -= CFG.SPY_TURNS;
     const ca = this.calc(a), ct = this.calc(t);
@@ -1623,6 +1664,7 @@ class Engine {
     const r = { id: this.id('r'), kind: 'spy', tick: this.W.tick, time: this.now(), attackerId: a.id, attackerName: a.name, defenderId: t.id, defenderName: t.name, win: ok, lines: [], chance: Math.round(pOk * 100), shades: a.units.shade, watchers: t.units.watcher || 0 };
     if (ok) {
       a.stats.spiesWon++;
+      if (a.isBot && !t.isBot && a.persona === 'boastful') this.ravenMaybe(a, t, 'spyTaunt', 'I know your vaults', {}); // successful spies mostly go unnoticed
       r.intel = { units: { ...t.units }, buildings: { ...t.buildings }, gold: Math.round(t.gold), food: Math.round(t.food), mana: Math.round(t.mana), land: t.land, offense: ct.offense, defense: ct.defense, spy: ct.spy, sentry: ct.sentry, research: { ...t.research } };
       r.lines.push(`Your Shades slipped past the watch of ${t.name} and returned with full intelligence.`);
       // a timestamped snapshot that goes stale, and can be partly wrong (spies miscount)
@@ -1634,6 +1676,7 @@ class Engine {
       a.units.shade -= Math.min(lost, a.units.shade);
       r.lines.push(`The Watchers of ${t.name} caught the Shades of ${a.name}. ${lost} were lost.`);
       this.note(t, `Your Watchers caught Shades sent by ${a.name}: ${lost} of them died.`, 'good');
+      if (a.isBot && !t.isBot) this.ravenMaybe(a, t, 'spyCaught', 'Your Watchers', { lost: fmt(lost) });
       r.lost = lost;
       if (!t.isBot) r.lines = [`Your ${fmt(t.units.watcher || 0)} Watchers caught ${fmt(lost)} Shades sent by ${a.name} (${a.ruler}). They died before they could count anything. Expect ${a.name} to be curious about you.`];
       if (t.isBot) { if (chance(0.35)) { t.grudge = a.id; t.grudgeAt = this.W.tick; } if (a.isBot && chance(0.004)) this.news(`Watchers of ${t.name} caught Shades sent by ${a.name}.`, 'war'); }
@@ -1670,8 +1713,8 @@ class Engine {
     if (ok) {
       if (spell === 'cinderhail') { const n = Math.round(t.units.warden * rnd(0.02, 0.04)); t.units.warden -= n; r.lines.push(`Cinder Hail scorches ${t.name}: ${fmt(n)} Wardens burn.`); }
       if (spell === 'blight') { const n = Math.round(t.food * rnd(0.10, 0.15)); t.food -= n; r.lines.push(`Ashen Blight rots ${fmt(n)} food in the granaries of ${t.name}.`); }
-      this.note(t, `${a.name} cast ${S.name} on you!`, 'bad');
-    } else { r.lines.push(`The Embermages of ${t.name} unravel the ${S.name} of ${a.name}.`); this.note(t, `Your mages warded off ${S.name} from ${a.name}.`, 'good'); }
+      this.note(t, `${a.name} cast ${S.name} on you!`, 'bad'); if (a.isBot && !t.isBot) this.ravenMaybe(a, t, 'hexHit', S.name, { spell: S.name });
+    } else { r.lines.push(`The Embermages of ${t.name} unravel the ${S.name} of ${a.name}.`); this.note(t, `Your mages warded off ${S.name} from ${a.name}.`, 'good'); if (a.isBot && !t.isBot) this.ravenMaybe(a, t, 'hexWarded', S.name, { spell: S.name }); }
     this.saveReport(r, [a, t]);
     if (t.isBot) t.grudge = a.id;
     return { msg: r.lines[0], report: r };
@@ -1768,15 +1811,15 @@ class Engine {
   leaveGuildRaw(k) {
     const g = this.W.guilds[k.guildId]; if (!g) return null;
     g.members = g.members.filter(id => id !== k.id); k.guildId = null;
-    if (!g.members.length) { delete this.W.guilds[g.id]; delete this.W.chat['guild:' + g.id]; this.news(`The covenant ${g.name} [${g.tag}] has disbanded.`, 'guild'); return g; }
+    if (!g.members.length) { this._disbands = (this._disbands || 0) + 1; delete this.W.guilds[g.id]; delete this.W.chat['guild:' + g.id]; this.news(`The covenant ${g.name} [${g.tag}] has disbanded.`, 'guild'); return g; }
     if (g.leader === k.id) {
-      const next = g.members.map(id => this.W.kingdoms[id]).sort((a, b) => this.prestige(b) - this.prestige(a))[0];
+      const next = g.members.map(id => this.W.kingdoms[id]).sort((a, b) => this.might(b) - this.might(a))[0];
       g.leader = next.id;
       if (this.myGuild() === g) this.guildSys(g, `${next.ruler} of ${next.name} now leads the covenant.`);
     }
     return g;
   }
-  guildMight(g) { let s = 0; for (const id of g.members) { const k = this.W.kingdoms[id]; if (k) s += this.prestige(k); } return s; }
+  guildMight(g) { let s = 0; for (const id of g.members) { const k = this.W.kingdoms[id]; if (k) s += this.might(k); } return s; }
   myGuild() { const p = this.player(); return p && p.guildId ? this.W.guilds[p.guildId] : null; }
   guildSys(g, text) { this.pushChat('guild:' + g.id, { id: this.id('c'), channel: 'guild:' + g.id, time: this.now(), sys: true, text }); }
   createGuild(k, name, tag, desc, policy = 'apply') {
@@ -1884,13 +1927,9 @@ class Engine {
   worldClanTick() {
     const W = this.W, on = this.onlineBots(), p = this.player(), pg = this.myGuild();
     for (let i = 0; i < 3 && on.length; i++) { const b = pick(on); if (!b.guildId && chance(0.25)) this.botSeekGuild(b); }
-    if (chance(0.15) && on.length) {
-      const b = pick(on), g = b.guildId && W.guilds[b.guildId];
-      if (g && b.loyalty < 0.5 && g.leader !== b.id && chance(0.6)) {
-        this.leaveGuildRaw(b);
-        if (g === pg) { this.guildSys(g, `${b.ruler} of ${b.name} has left the covenant.`); if (chance(0.6)) this.postBot(b, 'guild:' + g.id, pick(['Sorry all, moving on. Good luck.', 'Leaving, not active enough for me. gl', 'It has been an honour. Farewell.'])); }
-      }
-    }
+    // v3.4: bots almost never leave. The only exit is a rare move up to a clearly better covenant with room
+    // (higher level, tier or event standing); the old covenant always keeps members, so nothing disbands from churn.
+    if (on.length && chance(CFG.BOT_MOVE_CHANCE)) this.botUpgradeMove(pick(on));
     const nClans = Object.keys(W.guilds).length;
     if (nClans < CFG.MAX_CLANS && chance(0.05) && on.length) {
       const b = pick(on);
@@ -1899,7 +1938,7 @@ class Engine {
         if (nm) {
           this.settle(b);
           const g = this.createGuildRaw(b, nm.name, nm.tag, pick(CLANBANK.desc));
-          g.policy = pick(['apply', 'apply', 'open', 'invite']); g.minMight = Math.round(this.prestige(b) * rnd(0.1, 0.4));
+          g.policy = pick(['apply', 'apply', 'open', 'invite']); g.minMight = Math.round(this.might(b) * rnd(0.1, 0.4));
           this.news(`${b.name} founded the covenant ${g.name} [${g.tag}].`, 'guild');
           if (chance(0.7)) this.queue(rint(30, 300) * 1000, { type: 'chatline', from: b.id, ch: 'recruit', kind: 'recruit', vars: { clan: g.name, tag: g.tag } });
         }
@@ -1910,13 +1949,33 @@ class Engine {
       if (cands.length) this.queue(rint(5, 120) * 1000, { type: 'botapply', gid: pg.id, kid: pick(cands).id });
     }
     if (p && !p.guildId && W.tick - W.lastInviteToPlayer > CFG.INVITE_GAP && W.tick - (p.at0 || 0) > 30 && chance(0.08)) {
-      const pm = this.prestige(p);
+      const pm = this.might(p);
       const gs = Object.values(W.guilds).filter(g => g.members.length < this.guildCap(g) && g.minMight <= pm * 1.3 && !g.invites.includes(p.id) && this.isOnline(W.kingdoms[g.leader]));
       if (gs.length && this.invitesFor(p).length < 3) { W.lastInviteToPlayer = W.tick; this.queue(rint(10, 200) * 1000, { type: 'pinvite', gid: pick(gs).id }); }
     }
   }
+  // v3.4 covenant standing used by bots to judge a "better" covenant: level, tier and the last event's placing
+  guildStanding(g) {
+    if (!g) return 0;
+    const last = (this.W.gevHist || [])[0], top = last && last.top ? last.top.findIndex(x => x.gid === g.id) : -1;
+    return this.glvl(g) * 10 + (this.guildTier ? this.guildTier(g).i * 15 : 0) + (top >= 0 && top < 10 ? (10 - top) * 2 : 0);
+  }
+  betterGuild(h, g) { return !!(h && g && h !== g && this.guildStanding(h) >= this.guildStanding(g) + CFG.BOT_MOVE_MARGIN); }
+  botUpgradeMove(b) {
+    const W = this.W, g = b && b.guildId && W.guilds[b.guildId];
+    if (!g || g.leader === b.id || g.members.length <= CFG.BOT_MOVE_KEEP || (b.loyalty || 0) > 0.75) return null;
+    const m = this.might(b), pg = this.myGuild();
+    const opts = Object.values(W.guilds).filter(h => h !== g && h !== pg && h.policy !== 'invite' && h.members.length < this.guildCap(h) - 1 && m >= (h.minMight || 0) && this.betterGuild(h, g));
+    if (!opts.length) return null;
+    const h = opts.sort((x, y) => this.guildStanding(y) - this.guildStanding(x))[Math.floor(Math.random() * Math.min(3, opts.length))];
+    this.leaveGuildRaw(b); this.joinGuildRaw(b, h);
+    this._moves = (this._moves || 0) + 1;
+    if (g === pg) { this.guildSys(g, `${b.ruler} of ${b.name} left for ${h.name} [${h.tag}], a higher-ranked covenant.`); if (chance(0.5)) this.postBot(b, 'guild:' + g.id, pick(['Got an offer from a bigger covenant. Thank you all, truly.', 'Moving up. It was an honour fighting beside you.'])); }
+    if (chance(0.3)) this.news(`${b.name} left ${g.name} [${g.tag}] for ${h.name} [${h.tag}].`, 'guild');
+    return h;
+  }
   botSeekGuild(b) {
-    const pg = this.myGuild(), m = this.prestige(b);
+    const pg = this.myGuild(), m = this.might(b);
     const gs = Object.values(this.W.guilds).filter(g => g !== pg && g.policy !== 'invite' && g.members.length < this.guildCap(g) && m >= g.minMight);
     if (!gs.length) return;
     let tot = 0; for (const x of gs) tot += Math.sqrt(x.members.length + 2); // v3.3: bigger covenants draw a little more interest
@@ -2027,8 +2086,8 @@ class Engine {
       g.invites = g.invites.filter(x => x !== b.id);
       let pAcc;
       const gm = this.guildMight(g);
-      if (b.guildId) { const og = W.guilds[b.guildId]; pAcc = og && og.leader === b.id ? 0.02 : (gm > this.guildMight(og) * 1.2 ? (1 - b.loyalty) * 0.6 : 0.05); }
-      else { pAcc = 0.55 + (g.members.length < 3 ? -0.1 : 0.05) + (this.prestige(p) > this.prestige(b) * 0.5 ? 0.15 : -0.1) + (b.persona === 'friendly' ? 0.15 : b.persona === 'boastful' ? -0.15 : 0); }
+      if (b.guildId) { const og = W.guilds[b.guildId]; pAcc = !og ? 0.5 : og.leader === b.id || og.members.length <= CFG.BOT_MOVE_KEEP || !this.betterGuild(g, og) ? 0 : 0.1 + (1 - (b.loyalty || 0)) * 0.3; } // v3.4: only for a better covenant
+      else { pAcc = 0.55 + (g.members.length < 3 ? -0.1 : 0.05) + (this.might(p) > this.might(b) * 0.5 ? 0.15 : -0.1) + (b.persona === 'friendly' ? 0.15 : b.persona === 'boastful' ? -0.15 : 0); }
       if (g.members.length >= this.guildCap(g)) pAcc = 0;
       const v = this.vars(b, p, { clan: g.name, tag: g.tag });
       if (chance(clamp(pAcc, 0, 0.92))) {
@@ -2036,10 +2095,10 @@ class Engine {
         if (old) { this.leaveGuildRaw(b); this.news(`${b.name} left ${old.name} [${old.tag}] for ${g.name} [${g.tag}].`, 'guild'); }
         this.joinGuildRaw(b, g); this.guildSys(g, `${b.ruler} of ${b.name} accepted the invitation and joined.`);
         this.news(`${b.name} swore oaths to ${g.name} [${g.tag}].`, 'guild');
-        this.mailRaw(b, p, 'Your invitation', fill(pick(RAVENS.acceptInvite), v));
+        if (chance(CFG.RAVEN_P.inviteAccept)) this.mailRaw(b, p, 'Your invitation', fill(pick(RAVENS.acceptInvite), v));
         this.queue(rint(5, 60) * 1000, { type: 'chatline', from: b.id, ch: 'guild:' + g.id, kind: 'joinedClan', vars: { clan: g.name } });
         this.note(p, `${b.name} accepted your invitation to ${g.name}.`, 'good');
-      } else { this.mailRaw(b, p, 'Your invitation', fill(pick(RAVENS.declineInvite), v)); this.note(p, `${b.name} declined your invitation.`, 'info'); }
+      } else { if (chance(CFG.RAVEN_P.inviteDecline)) this.mailRaw(b, p, 'Your invitation', fill(pick(RAVENS.declineInvite), v)); this.note(p, `${b.name} declined your invitation.`, 'info'); }
       return;
     }
     if (it.type === 'apply') {
@@ -2047,9 +2106,9 @@ class Engine {
       const leader = K[g.leader]; if (!leader || !leader.isBot) return;
       g.apps = g.apps.filter(a => a.id !== k.id);
       const v = this.vars(leader, k, { clan: g.name, tag: g.tag });
-      const ok = !k.guildId && g.members.length < this.guildCap(g) && (this.prestige(k) >= g.minMight * rnd(0.6, 1) || chance(0.35));
-      if (ok) { this.joinGuildRaw(k, g); this.mailRaw(leader, k, `Your oath to [${g.tag}]`, fill(pick(RAVENS.acceptApp), v)); this.welcomePlayer(g, k); this.note(k, `Your application was accepted. Welcome to ${g.name}!`, 'good'); }
-      else { this.mailRaw(leader, k, `Your oath to [${g.tag}]`, fill(pick(RAVENS.declineApp), v)); this.note(k, `${g.name} declined your application.`, 'bad'); }
+      const ok = !k.guildId && g.members.length < this.guildCap(g) && (this.might(k) >= g.minMight * rnd(0.6, 1) || chance(0.35));
+      if (ok) { this.joinGuildRaw(k, g); if (chance(CFG.RAVEN_P.appAccept)) this.mailRaw(leader, k, `Your oath to [${g.tag}]`, fill(pick(RAVENS.acceptApp), v)); this.welcomePlayer(g, k); this.note(k, `Your application was accepted. Welcome to ${g.name}!`, 'good'); }
+      else { if (chance(CFG.RAVEN_P.appDecline)) this.mailRaw(leader, k, `Your oath to [${g.tag}]`, fill(pick(RAVENS.declineApp), v)); this.note(k, `${g.name} declined your application.`, 'bad'); }
       return;
     }
     if (it.type === 'pinvite') {
@@ -2077,7 +2136,7 @@ class Engine {
     if (msg.kind === 'recruit') { kind = 'interest'; if (!r.guildId && chance(0.4)) { const g = k.guildId && this.W.guilds[k.guildId]; if (g && g !== this.myGuild() && g.policy !== 'invite' && g.members.length < this.guildCap(g)) this.queue(rint(60, 600) * 1000, { type: 'chatline', from: r.id, ch: 'recruit', text: pick(['joined [' + g.tag + '] ty', 'in. thanks ' + k.handle, 'Oath sworn to [' + g.tag + '].']) }) || this.joinGuildRaw(r, g); } }
     if (msg.kind === 'seek') {
       const pg = this.myGuild();
-      const leaders = on.filter(b => { const lg = b.guildId && this.W.guilds[b.guildId]; return lg && lg !== pg && lg.leader === b.id && lg.policy !== 'invite' && lg.members.length < this.guildCap(lg) && this.prestige(k) >= (lg.minMight || 0); });
+      const leaders = on.filter(b => { const lg = b.guildId && this.W.guilds[b.guildId]; return lg && lg !== pg && lg.leader === b.id && lg.policy !== 'invite' && lg.members.length < this.guildCap(lg) && this.might(k) >= (lg.minMight || 0); });
       if (!leaders.length || k.guildId) return;
       const L = pick(leaders), lg = this.W.guilds[L.guildId];
       this.queue(rint(15, 150) * 1000, { type: 'chatline', from: L.id, ch: 'recruit', text: fill(pick(['@{h} [{tag}] has room. Apply in the Covenants hall.', '@{h} {clan} will take you. Sending word.', '{first}, join [{tag}]. We hit gates every evening.', '@{h} we are recruiting, check [{tag}]']), { h: k.handle, tag: lg.tag, clan: lg.name, first: k.first || k.handle }) });
@@ -2218,7 +2277,7 @@ class Engine {
     if (chance(P(0.05))) this.botSay(k, 'global', chance(0.3) ? 'trash' : 'generic');
     const kg = k.guildId && this.W.guilds[k.guildId];
     if (kg && kg.leader === k.id && kg.policy !== 'invite' && kg.members.length < this.guildCap(kg) - 2 && chance(P(0.12))) this.botSay(k, 'recruit', 'recruit', { clan: kg.name, tag: kg.tag });
-    else if (!kg && chance(P(0.01))) this.postBot(k, 'recruit', pick(['LF covenant, active most evenings. ' + (this.prestige(k) > 20000 ? 'Decent prestige.' : 'Still growing.'), 'Any covenant taking ' + D.RACES[k.race].name + ' realms?', 'Looking for a clan that actually hits gates', 'lf clan pls', 'Seeking a covenant with honour. Ravens welcome.', 'Who is recruiting? ' + D.CLASSES[k.cls].name + ' here, ' + k.land + ' acres.', 'need clan, will be active']), 'seek');
+    else if (!kg && chance(P(0.01))) this.postBot(k, 'recruit', pick(['LF covenant, active most evenings. ' + (this.might(k) > 20000 ? 'Decent might.' : 'Still growing.'), 'Any covenant taking ' + D.RACES[k.race].name + ' realms?', 'Looking for a clan that actually hits gates', 'lf clan pls', 'Seeking a covenant with honour. Ravens welcome.', 'Who is recruiting? ' + D.CLASSES[k.cls].name + ' here, ' + k.land + ' acres.', 'need clan, will be active']), 'seek');
     if (kg && kg === this.myGuild() && chance(P(0.1))) this.botSay(k, 'guild:' + kg.id, 'clanHall', { name: this.player().name });
   }
   botUpgrade(k) {
@@ -2284,7 +2343,7 @@ class Engine {
   }
   // The only way bot logic may look at another realm.
   botView(k, t) {
-    const pub = { id: t.id, level: this.level(t), land: t.land, renown: t.renown, prestige: this.prestige(t), guildId: t.guildId, protected: this.isProtected(t), isBot: !!t.isBot };
+    const pub = { id: t.id, level: this.level(t), land: t.land, renown: t.renown, might: this.might(t), guildId: t.guildId, protected: this.isProtected(t), isBot: !!t.isBot };
     const it = this.intelOn(k, t), g = this.publicGuess(k, t);
     if (!it) return { ...pub, def: g.def, off: g.off, gold: g.gold, army: g.army, fresh: false, src: 'guess' };
     const age = this.W.tick - it.t, inc = (t.land * 1.2 + 40) * CFG.RATE;
@@ -2369,17 +2428,17 @@ class Engine {
   // ---------- views ----------
   publicKingdom(k) {
     const g = k.guildId && this.W.guilds[k.guildId];
-    return { id: k.id, name: k.name, ruler: k.ruler, handle: k.handle, race: k.race, cls: k.cls, land: k.land, level: this.level(k), title: this.titleOf ? this.titleOf(k) : null, patron: this.isPatron ? this.isPatron(k) : false, might: this.prestige(k), prestige: this.prestige(k), renown: Math.round(k.renown), isBot: !!k.isBot, guild: g ? { id: g.id, name: g.name, tag: g.tag } : null, protected: this.isProtected(k), online: this.isOnline(k), persona: k.persona, voice: k.voice, bio: k.isBot ? this.botBio(k) : (k.bio || ''), avatar: k.avatar || null, seed: k.id };
+    return { id: k.id, name: k.name, ruler: k.ruler, handle: k.handle, race: k.race, cls: k.cls, land: k.land, level: this.level(k), title: this.titleOf ? this.titleOf(k) : null, patron: this.isPatron ? this.isPatron(k) : false, might: this.might(k), might: this.might(k), renown: Math.round(k.renown), isBot: !!k.isBot, guild: g ? { id: g.id, name: g.name, tag: g.tag } : null, protected: this.isProtected(k), online: this.isOnline(k), persona: k.persona, voice: k.voice, bio: k.isBot ? this.botBio(k) : (k.bio || ''), avatar: k.avatar || null, seed: k.id };
   }
   rankings(by = 'might') {
     if (!this.rankCache || this.rankCache.tick !== this.W.tick) this.rankCache = { tick: this.W.tick };
     if (this.rankCache[by]) return this.rankCache[by];
     // v3: only public facts are ranked (offense/defense rankings removed: they would reveal hidden stats)
-    // v3.1: 'might' is now public Prestige (land, level, renown). Gate/boss damage boards are for people
+    // v3.1: 'might' is now public Might (land, level, renown). Gate/boss damage boards are for people
     // to read; bot logic never uses them.
-    const key = { might: '_pr', prestige: '_pr', level: 'xp', land: 'land', renown: 'renown', gate: 'gd', boss: 'bd' }[by] || '_pr';
+    const key = { might: '_pr', level: 'xp', land: 'land', renown: 'renown', gate: 'gd', boss: 'bd' }[by] || '_pr';
     const all = Object.values(this.W.kingdoms);
-    for (const k of all) { k._pr = this.prestige(k); k.gd = k.stats.gateDamage; k.bd = k.stats.bossDamage || 0; }
+    for (const k of all) { k._pr = this.might(k); k.gd = k.stats.gateDamage; k.bd = k.stats.bossDamage || 0; }
     all.sort((a, b) => (b[key] || 0) - (a[key] || 0));
     const list = all.map((k, i) => ({ id: k.id, rank: i + 1, v: by === 'level' ? this.level(k) : Math.round(k[key] || 0), lv: this.level(k) }));
     for (const k of all) { delete k.gd; delete k.bd; }
@@ -2424,7 +2483,7 @@ class Engine {
     return Object.entries(threads).map(([id, msgs]) => ({ id, other: this.W.kingdoms[id] ? this.publicKingdom(this.W.kingdoms[id]) : { id, name: msgs[0].from === k.id ? msgs[0].toName : msgs[0].fromName }, msgs: msgs.slice().reverse(), last: msgs[0], unread: msgs.filter(m => m.to === k.id && !m.read).length }));
   }
   markThreadRead(k, otherId) { for (const id in this.W.mail) { const m = this.W.mail[id]; if (m.to === k.id && m.from === otherId) m.read = true; } }
-  // War list: realms near you by public prestige. v3.1: by default only realms within +/-10 levels
+  // War list: realms near you by public might. v3.1: by default only realms within +/-10 levels
   // (topped up from your level band so the list is never empty); all=true shows everyone, greyed out.
   realmsNear(k, span = 25, all = false) {
     const list = this.rankings('might'), i = list.findIndex(x => x.id === k.id), rk = {}; list.forEach(x => rk[x.id] = x.rank);
@@ -2561,7 +2620,7 @@ class Engine {
     if (W.market && W.market.px) delete W.market.px.tools;
     // tools caravans on the road settle as gold: a purchase is refunded, a sale is paid
     if (W.caravans) W.caravans = W.caravans.filter(c => { if (c.good !== 'tools') return true; const k = W.kingdoms[c.kid]; if (k && c.gold) k.gold += c.gold; return false; });
-    for (const g of Object.values(W.guilds || {})) { g.lvl = 1; g.gxp = 0; delete g.level; const L = W.kingdoms[g.leader]; if (g.minMight) g.minMight = Math.round((L ? this.prestige(L) : 5000) * rnd(0.1, 0.4)); }
+    for (const g of Object.values(W.guilds || {})) { g.lvl = 1; g.gxp = 0; delete g.level; const L = W.kingdoms[g.leader]; if (g.minMight) g.minMight = Math.round((L ? this.might(L) : 5000) * rnd(0.1, 0.4)); }
     W.version = 6;
     W.flags.migrated = Object.assign({}, W.flags.migrated || {}, { v31: { from, at: Date.now(), refund: refundP }, notice: true });
     if (p) this.note(p, `Embergate 3.1: weapons and tools are gone; your Vanguard weapons became armour of the same tier${refundP ? `, and staves/tools were refunded for ${fmt(refundP)} gold` : ''}. XP now comes only from battle, gates, bosses and guild events. You stay level ${this.level(p)}.`, 'good');
@@ -3213,7 +3272,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       if (!this._idx) this.buildIndex();
       const g = t.guildId && this.W.guilds[t.guildId], it = b.intel && b.intel[t.id], age = it ? this.W.tick - it.t : null;
       const m = !t.isBot && this.W.mem ? this.W.mem[b.id] : null;
-      return { rank: this.rankOf(t), level: this.level(t), land: t.land, might: this.prestige(t), tag: g ? g.tag : null, clan: g ? g.name : null, title: t.title || null, patron: this.isPatron ? this.isPatron(t) : false,
+      return { rank: this.rankOf(t), level: this.level(t), land: t.land, might: this.might(t), tag: g ? g.tag : null, clan: g ? g.name : null, title: t.title || null, patron: this.isPatron ? this.isPatron(t) : false,
         intel: it && age < CFG.INTEL_STALE * 2 ? Object.assign({ age, stale: age >= CFG.INTEL_STALE }, it) : null, claims: (m && m.claims) || {} };
     },
     ago(ticks) { return ticks < 60 ? `${ticks} min ago` : `${Math.round(ticks / 60)}h ago`; },
@@ -3419,9 +3478,9 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
         }
         case 'rank': {
           const L = this.rankings('might').slice(0, 3).map(x => W.kingdoms[x.id]).filter(Boolean);
-          F.push(`The top realms by prestige are ${L.map((k, i) => `#${i + 1} ${k.name} (${fm(this.prestige(k))})`).join(', ')}.`);
+          F.push(`The top realms by might are ${L.map((k, i) => `#${i + 1} ${k.name} (${fm(this.might(k))})`).join(', ')}.`);
           F.push(`I sit at rank ${this.rankOf(b)} of ${fm(total)}, level ${this.level(b)}.`);
-          if (kn) F.unshift(`The rankings have you at #${fm(kn.rank)} of ${fm(total)}, level ${kn.level}, ${fm(kn.might)} prestige.`);
+          if (kn) F.unshift(`The rankings have you at #${fm(kn.rank)} of ${fm(total)}, level ${kn.level}, ${fm(kn.might)} might.`);
           const gr = this.guildRankings()[0]; if (gr) F.push(`The strongest covenant is ${gr.name} [${gr.tag}].`);
           break;
         }
@@ -3687,8 +3746,8 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
         if (cl.off != null) { const r = cl.off / Math.max(1, est.def); return { text: r > 1.15 ? `${this.ynWord(b, true)}You said ${fm(cl.off)} offense; ${src}. Spy them first to confirm, then hit.` : r > 0.95 ? `Coin flip. You said ${fm(cl.off)} offense and ${src}. Spy first, cast Bloodrage, then decide.` : `${this.ynWord(b, false)}${cap1(src)}, and you told me ${fm(cl.off)} offense. You'd bounce.`, topic: 'attack', ent: t.id, why: est.fresh ? 'Because my spy report says so, and offense has to beat their real defense after a ±10% roll.' : 'Because might is a rough proxy: about 45% of it is usually defense, but turtles and raiders differ a lot.' }; }
         return { text: `${cap1(src)}. What's your offense? I can't see behind your walls, so tell me and I'll say yes or no. Or just send Shades first.`, topic: 'attack', ent: t.id, fq: null, why: 'Because I only know what the rankings and my own spies show. Nobody sees your real army, me included.' };
       }
-      const mine = this.prestige(b);
-      let s = `${t.name} (${t.ruler}) is rank ${fm(kn.rank)}, level ${kn.level}, ${fm(kn.land)} acres and about ${fm(kn.might)} prestige${kn.tag ? `, sworn to [${kn.tag}]` : ''}${kn.title ? `, the "${kn.title}"` : ''}.`;
+      const mine = this.might(b);
+      let s = `${t.name} (${t.ruler}) is rank ${fm(kn.rank)}, level ${kn.level}, ${fm(kn.land)} acres and about ${fm(kn.might)} might${kn.tag ? `, sworn to [${kn.tag}]` : ''}${kn.title ? `, the "${kn.title}"` : ''}.`;
       if (it) s += ` My Shades got in ${this.ago(it.age)}: ~${fm(Math.round(it.def / 100) * 100)} defense${it.off ? `, ~${fm(Math.round(it.off / 100) * 100)} offense` : ''}${it.stale ? ' (stale now)' : ''}.`;
       else s += ` ${kn.might > mine ? 'Bigger name than me, I admit.' : 'I could take them.'}`;
       if (t.isBot && this.isOnline(t) && chance(0.6)) s += ' They are online now.';
@@ -3764,7 +3823,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       if (!own) { const m2 = t.match(new RegExp('\\bhow (much|many) ' + HID + '( \\w+)? (do|have|did) i\\b')); if (m2) own = [0, 0, 0, 0, m2[2]]; }
       if (tgt && !own && new RegExp('\\b' + HID + '\\b|\\brich\\b|\\bpoor\\b').test(t) && !/(should|can|could) i (attack|hit|raid)/.test(t)) {
         const kn = this.know(b, tgt), it = kn.intel;
-        const pubTxt = `rank #${fm(kn.rank)}, level ${kn.level}, ${fm(kn.land)} acres, about ${fm(kn.might)} prestige`;
+        const pubTxt = `rank #${fm(kn.rank)}, level ${kn.level}, ${fm(kn.land)} acres, about ${fm(kn.might)} might`;
         if (it) return { text: `My Shades got into ${tgt.name} ${this.ago(it.age)}: ~${fm(Math.round(it.def / 100) * 100)} defense${it.off ? `, ~${fm(Math.round(it.off / 100) * 100)} offense` : ''}${it.gold != null ? `, ~${fm(Math.round(it.gold / 1000) * 1000)} gold lying around` : ''}${it.stale ? ' (stale now)' : ''}. Public: ${pubTxt}.`, topic: 'spy', ent: tgt.id, why: 'That is from my own spy report. Everything else is public.' };
         return { text: `No idea; I've never had Shades inside ${tgt.name}. Public: ${pubTxt}. Spy them yourself if you want real numbers.`, topic: 'spy', ent: tgt.id, why: 'Gold, armies and walls are hidden. Only spies see them.' };
       }
@@ -3776,7 +3835,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       const selfAsk = (tm === b || new RegExp('@' + b.handle.replace(/[^a-z0-9_]/gi, ''), 'i').test(I.raw)) && new RegExp('\\b' + HID + '\\b|\\brich\\b|\\bstrong\\b|\\bhow big\\b').test(t) && !/(should|can|could) i (attack|hit|raid)|\bme\b|\bmy\b/.test(t) && /\b(you|your|u|ur|yours)\b/.test(t);
       if (/how (much|many) ([a-z]+ ){0,2}(do|have|did) you (got|have|own|hold)|how (much|many) ([a-z]+ ){0,2}have you got|what('?s| is) your (might|land|rank|acreage|army|offen[cs]e|defen[cs]e|level)|how (big|strong|large|mighty|rich) (are you|is your)/.test(t) || selfAsk) {
         const rk = this.rankOf(b);
-        const what = /land|acre/.test(t) ? `I hold ${fm(b.land)} acres` : /gold|rich|coin/.test(t) ? `Enough gold to pay my Laborers; the rest sits in my vault where you cannot reach it` : /army|soldier|troop|unit|vanguard|warden|offen|defen/.test(t) ? pick([`Nice try. My army is my business; send Shades if you want numbers`, `Enough. You'll find out if you attack me`]) : /level/.test(t) ? `Level ${this.level(b)}` : `${fm(this.prestige(b))} prestige and ${fm(b.land)} acres, it's all in the rankings`;
+        const what = /land|acre/.test(t) ? `I hold ${fm(b.land)} acres` : /gold|rich|coin/.test(t) ? `Enough gold to pay my Laborers; the rest sits in my vault where you cannot reach it` : /army|soldier|troop|unit|vanguard|warden|offen|defen/.test(t) ? pick([`Nice try. My army is my business; send Shades if you want numbers`, `Enough. You'll find out if you attack me`]) : /level/.test(t) ? `Level ${this.level(b)}` : `${fm(this.might(b))} might and ${fm(b.land)} acres, it's all in the rankings`;
         return { text: `${what}. That puts ${b.name} at rank #${fm(rk)}.`, topic: 'rank', why: /army|offen|defen/.test(t) ? 'Because real numbers are exactly what spies are for. Nobody shares their walls for free.' : null };
       }
       if (/\b(wardens?|defen[cs]e)\b.{0,15}\bor\b.{0,15}\b(vanguard|offen[cs]e)\b|\b(vanguard|offen[cs]e)\b.{0,15}\bor\b.{0,15}\b(wardens?|defen[cs]e)\b/.test(t)) {
@@ -3798,11 +3857,11 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       if (/\b(next|when).{0,20}\btick\b|\btick.{0,15}(when|how long|left)\b|how long (is|are) (a |the |each )?ticks?/.test(t)) return { text: this.facts('tick', b, asker, I).slice(0, 2).join(' '), topic: 'tick', fq: 'tick' };
       if (/\b(who|which).{0,30}(strongest|best|top|#1|number one|mightiest|rank(ed)? (1|one|first)|richest|biggest|largest|highest level)\b/.test(t) && !/(clan|covenant|guild)/.test(t)) {
         const by = /biggest|largest|most land/.test(t) ? 'land' : /level/.test(t) ? 'level' : 'might', L = this.rankings(by).slice(0, 3).map(x => W.kingdoms[x.id]);
-        return { text: `${L[0].name} (${L[0].ruler}) leads by ${by === 'land' ? 'land with ' + fm(L[0].land) + ' acres' : by === 'level' ? 'level at ' + this.level(L[0]) : 'prestige with ' + fm(this.prestige(L[0]))}, then ${L[1].name} and ${L[2].name}.${p ? ` You are rank ${this.myRank(by)}.` : ''}`, topic: 'rank', ents: [L[0].id, L[1].id] };
+        return { text: `${L[0].name} (${L[0].ruler}) leads by ${by === 'land' ? 'land with ' + fm(L[0].land) + ' acres' : by === 'level' ? 'level at ' + this.level(L[0]) : 'might with ' + fm(this.might(L[0]))}, then ${L[1].name} and ${L[2].name}.${p ? ` You are rank ${this.myRank(by)}.` : ''}`, topic: 'rank', ents: [L[0].id, L[1].id] };
       }
       if (/\b(who|which).{0,30}(strongest|best|top|biggest|mightiest|largest).{0,12}(clan|covenant|guild)|(clan|covenant|guild)s?.{0,20}(strongest|best|top|biggest|mightiest)/.test(t)) {
         const G = this.guildRankings().slice(0, 3);
-        return { text: `${G[0].name} [${G[0].tag}] is the most prestigious covenant (${G[0].size} realms, ${fm(G[0].might)} prestige), then ${G[1] ? G[1].name + ' [' + G[1].tag + ']' : 'nobody close'}${G[2] ? ' and [' + G[2].tag + ']' : ''}.`, topic: 'clan', fq: 'clan' };
+        return { text: `${G[0].name} [${G[0].tag}] is the mightiest covenant (${G[0].size} realms, ${fm(G[0].might)} might), then ${G[1] ? G[1].name + ' [' + G[1].tag + ']' : 'nobody close'}${G[2] ? ' and [' + G[2].tag + ']' : ''}.`, topic: 'clan', fq: 'clan' };
       }
       if (/\b(do|can|does) (you|bots?|they|rivals?|the ai) (see|know|read|check) (my|our)\b|\bknow my (stats|army|defen[cs]e|offen[cs]e|gold)\b|\bcan you see my\b/.test(t)) {
         const it = p ? this.know(b, p).intel : null;
@@ -3810,7 +3869,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       }
       if (p && /\b(my|i) (rank|ranked|place|level)\b(?! up)|what (rank|level) am i|where do i (stand|rank)|how (am i doing|strong am i)|am i (strong|weak|doing)|rate my/.test(t)) {
         const kn = this.know(b, p), tot = Object.keys(W.kingdoms).length;
-        return { text: `The rankings show you at #${fm(kn.rank)} of ${fm(tot)}: level ${kn.level}, ${fm(kn.might)} prestige, ${fm(kn.land)} acres. ${kn.rank <= 100 ? 'That is top-tier.' : kn.rank <= tot * 0.3 ? 'Solidly mid-pack.' : 'Still growing; plenty of realms are beginners too.'} ${kn.intel ? `My last spy report had you at ~${fm(Math.round(kn.intel.def / 100) * 100)} defense.` : `What's behind your walls, only you know.`}`, topic: 'rank', why: 'That is all public: might, land and level are on the leaderboard.' };
+        return { text: `The rankings show you at #${fm(kn.rank)} of ${fm(tot)}: level ${kn.level}, ${fm(kn.might)} might, ${fm(kn.land)} acres. ${kn.rank <= 100 ? 'That is top-tier.' : kn.rank <= tot * 0.3 ? 'Solidly mid-pack.' : 'Still growing; plenty of realms are beginners too.'} ${kn.intel ? `My last spy report had you at ~${fm(Math.round(kn.intel.def / 100) * 100)} defense.` : `What's behind your walls, only you know.`}`, topic: 'rank', why: 'That is all public: might, land and level are on the leaderboard.' };
       }
       if (/\b(your|you) (rank|might|power|land|realm|level)\b|how (strong|big|rich) are you|where are you from|what('?s| is) your (realm|clan|covenant)|which (clan|covenant) are you|tell me about (yourself|you)\b|who are you/.test(t)) return { text: this.selfIntro(b), topic: 'rank' };
       if (/how many (players|people|realms|rulers|kingdoms|bots|users)|how big is (the )?(world|server)/.test(t)) return { text: `${fm(Object.keys(W.kingdoms).length)} realms in ${D.WORLD.province}, ${fm(this.onlineBots().length)} rulers awake right now and ${Object.keys(W.guilds).length} covenants.`, topic: 'online' };
@@ -3824,7 +3883,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
         const s = this.suggestTarget(p, b);
         if (!s.length) return { text: `Nobody near your rank looks soft from here. Spy a few neighbours yourself.`, topic: 'attack', fq: 'attack' };
         const [a, c2] = s, d = x => `${x.t.name} (rank ${this.rankOf(x.t)}, ~${fm(Math.round(x.est / 100) * 100)} defense ${x.fresh ? 'per my spies' : 'by my guess'})`;
-        return { text: `Try ${d(a)}${c2 ? ` or ${d(c2)}` : ''}. Their prestige looks low for their level. Spy before you swing; I can't see your offense, so check it beats that.`, topic: 'attack', fq: 'attack', ents: [a.t.id, c2 ? c2.t.id : null].filter(Boolean), why: 'Because low might per acre usually means thin walls. It is a guess until you spy.' };
+        return { text: `Try ${d(a)}${c2 ? ` or ${d(c2)}` : ''}. Their might looks low for their level. Spy before you swing; I can't see your offense, so check it beats that.`, topic: 'attack', fq: 'attack', ents: [a.t.id, c2 ? c2.t.id : null].filter(Boolean), why: 'Because low might per acre usually means thin walls. It is a guess until you spy.' };
       }
       if (tgt && (/(should|can|could) i (attack|hit|raid|sack)|is it safe to (attack|hit)|worth (attacking|hitting)/.test(t) || /(is|are|how) .*(strong|weak|good|big|dangerous|active)|what do you (think|know) (of|about)|tell me about|who is/.test(t))) return this.aboutRealm(b, asker, tgt, I, to);
       if (/(which|what|best) (race|people|class|calling)|(race|class) is (the )?best/.test(t)) return { text: this.facts('race', b, asker, I).slice(0, 2).join(' '), topic: 'race' };
@@ -3970,8 +4029,8 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       if (I.acts.clanAsk) {
         let text;
         if (g && g.leader === b.id && !p.guildId && g.members.length < this.guildCap(g)) {
-          if (this.prestige(p) >= g.minMight * 0.6 || chance(0.5)) { text = fill(pick(['Very well, {to}. I have sent you an invitation to {clan} [{tag}]. Accept it in the Covenants hall.', 'You may join us, {to}. The invitation to [{tag}] is waiting for you.']), v); this.queue(Math.max(0, delay - 1000), { type: 'pinvite', gid: g.id }); }
-          else text = fill(pick(RAVENS.declineApp), v) + ` You need about ${fm(g.minMight * 0.6)} prestige; you have ${fm(this.prestige(p))}.`;
+          if (this.might(p) >= g.minMight * 0.6 || chance(0.5)) { text = fill(pick(['Very well, {to}. I have sent you an invitation to {clan} [{tag}]. Accept it in the Covenants hall.', 'You may join us, {to}. The invitation to [{tag}] is waiting for you.']), v); this.queue(Math.max(0, delay - 1000), { type: 'pinvite', gid: g.id }); }
+          else text = fill(pick(RAVENS.declineApp), v) + ` You need about ${fm(g.minMight * 0.6)} might; you have ${fm(this.might(p))}.`;
         } else if (g && g.leader !== b.id) text = fill(`Ask our leader, ${this.W.kingdoms[g.leader].ruler}, {to}. I do not decide who joins [{tag}].`, v);
         else if (!g) text = fill('I have no covenant, {to}. Found one and perhaps I will join it.', v);
         else text = fill(pick(REPLY.clanNo), v);
@@ -5077,7 +5136,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
     if (!g.ranks) {
       g.ranks = {};
       // existing covenants: the strongest one or two members are officers, a few more elders
-      const ms = g.members.filter(id => id !== g.leader && this.W.kingdoms[id]).map(id => this.W.kingdoms[id]).sort((a, b) => this.prestige(b) - this.prestige(a));
+      const ms = g.members.filter(id => id !== g.leader && this.W.kingdoms[id]).map(id => this.W.kingdoms[id]).sort((a, b) => this.might(b) - this.might(a));
       const nO = ms.length >= 12 ? 2 : ms.length >= 4 ? 1 : 0, nE = Math.min(3, Math.floor(ms.length / 5));
       ms.forEach((k, i) => { if (k.isBot) { if (i < nO) g.ranks[k.id] = 'officer'; else if (i < nO + nE) g.ranks[k.id] = 'elder'; } });
     }
@@ -5122,7 +5181,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
   };
   V.rosterView = function (g) {
     this.ensureRanks(g);
-    return g.members.map(id => this.W.kingdoms[id]).filter(Boolean).map(m => ({ id: m.id, ruler: m.ruler, name: m.name, race: m.race, cls: m.cls, bot: !!m.isBot, level: this.level(m), might: this.prestige(m), rank: this.rankIn(g, m.id), online: m.isBot ? this.isOnline(m) : true, title: this.titleOf(m) }))
+    return g.members.map(id => this.W.kingdoms[id]).filter(Boolean).map(m => ({ id: m.id, ruler: m.ruler, name: m.name, race: m.race, cls: m.cls, bot: !!m.isBot, level: this.level(m), might: this.might(m), rank: this.rankIn(g, m.id), online: m.isBot ? this.isOnline(m) : true, title: this.titleOf(m) }))
       .sort((a, b) => RANKS.indexOf(a.rank) - RANKS.indexOf(b.rank) || b.might - a.might);
   };
   // rally: a rank with the "event" permission can rally once per event (+5% contribution for 1 hour)
@@ -5222,7 +5281,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       const app = g.apps[0], b = W.kingdoms[app.id], o = pick(off);
       if (!b || b.guildId) { g.apps.shift(); return; }
       if (app.time != null && this.now() - app.time < 20 * 60000) return;
-      const room = g.members.length < this.guildCap(g), okM = this.prestige(b) >= (g.minMight || 0);
+      const room = g.members.length < this.guildCap(g), okM = this.might(b) >= (g.minMight || 0);
       g.apps.shift();
       if (room && okM) {
         this.joinGuildRaw(b, g);
@@ -5316,6 +5375,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
     const t = this.W.kingdoms[targetId]; if (!a || !t) return { ok: false, reason: 'Unknown realm', cost: CFG.ATTACK_TURNS };
     const out = { ok: true, reason: '', cost: CFG.ATTACK_TURNS, turns: Math.floor(a.turns), level: this.level(t), myLevel: this.level(a), inRange: this.inRange(a, t) };
     out.pair = this.pairState(a, t);
+    if (this.isMate(a, t)) return Object.assign(out, { ok: false, mate: true, reason: `Guild member: ${t.name} is in your covenant. You cannot attack or spy on covenant-mates.` });
     try { this.canTarget(a, t); } catch (e) { return Object.assign(out, { ok: false, reason: e.message }); }
     if (!out.pair.ok) return Object.assign(out, { ok: false, limit: true, reason: `Limit reached (${out.pair.used}/${PAIR_MAX} successful hits in 24 h), available again in ${dur(Math.ceil(out.pair.nextIn))}` });
     if (a.turns < CFG.ATTACK_TURNS) return Object.assign(out, { ok: false, reason: `Not enough turns: an attack costs ${CFG.ATTACK_TURNS}, you have ${Math.floor(a.turns)}` });
@@ -5347,9 +5407,9 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
     if (r) { const i = r.intel; src = 'spy'; age = T - r.tick; them = { offense: i.offense, defense: i.defense, spy: i.spy, sentry: i.sentry, army: ARMY(i.units || {}), shades: (i.units || {}).shade, watchers: (i.units || {}).watcher, gold: i.gold, food: i.food, mana: i.mana }; }
     else if (book) { src = 'book'; age = T - book.t; them = { offense: book.off, defense: book.def, sentry: book.sentry, army: book.army, gold: book.gold, food: book.food }; }
     const stale = age != null && age >= CFG.INTEL_STALE;
-    const mine = { level: this.level(a), land: a.land, prestige: this.prestige(a), offense: Math.round(ca.offense), defense: Math.round(ca.defense), spy: Math.round(ca.spy), sentry: Math.round(ca.sentry), army: ARMY(a.units), shades: a.units.shade || 0, watchers: a.units.watcher || 0, gold: Math.floor(a.gold), food: Math.floor(a.food), mana: Math.floor(a.mana) };
-    const theirs = Object.assign({ level: pub.level, land: pub.land, prestige: pub.prestige }, them);
-    const ROWS = [['level', 'Level', 'public'], ['land', 'Land (acres)', 'public'], ['prestige', 'Prestige', 'public'], ['offense', 'Offence'], ['defense', 'Defence'], ['spy', 'Spy power'], ['sentry', 'Sentry'], ['army', 'Army (Vanguard + Wardens + Mages)'], ['shades', 'Shades'], ['watchers', 'Watchers'], ['gold', 'Gold'], ['food', 'Food'], ['mana', 'Mana']];
+    const mine = { level: this.level(a), land: a.land, might: this.might(a), offense: Math.round(ca.offense), defense: Math.round(ca.defense), spy: Math.round(ca.spy), sentry: Math.round(ca.sentry), army: ARMY(a.units), shades: a.units.shade || 0, watchers: a.units.watcher || 0, gold: Math.floor(a.gold), food: Math.floor(a.food), mana: Math.floor(a.mana) };
+    const theirs = Object.assign({ level: pub.level, land: pub.land, might: pub.might }, them);
+    const ROWS = [['level', 'Level', 'public'], ['land', 'Land (acres)', 'public'], ['might', 'Might', 'public'], ['offense', 'Offence'], ['defense', 'Defence'], ['spy', 'Spy power'], ['sentry', 'Sentry'], ['army', 'Army (Vanguard + Wardens + Mages)'], ['shades', 'Shades'], ['watchers', 'Watchers'], ['gold', 'Gold'], ['food', 'Food'], ['mana', 'Mana']];
     const rows = ROWS.map(([key, label, pubF]) => { const m = mine[key], v = theirs[key] == null ? null : Math.round(theirs[key]); return { key, label, me: m, them: v, known: v != null, public: !!pubF, cmp: v == null ? 0 : m > v ? 1 : m < v ? -1 : 0 }; });
     const known = rows.filter(x => x.known && !x.public).length;
     let win = null, spyOdds = null;
@@ -5704,10 +5764,10 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
       const lim = this.p2pLimits(p, o.give, o.ask);
       if (lim) { o.reply = `${this.tradeLine(b, 'accept', 'fair')} But your caravans can't leave: ${lim}.`; this.p2pClose(o, 'failed', 'limits'); this.note(p, `🤝 ${b.ruler} agreed, but the deal fell through: ${lim}. Your goods are back.`, 'bad'); return; }
       const h = this.canHold(b, o.ask);
-      if (!h.ok) { o.reply = this.tradeLine(b, 'decline', 'short'); this.p2pClose(o, 'declined', 'short'); this.note(p, `🤝 ${b.ruler} declined your trade: ${o.reply}`, 'bad'); this.tradeRaven(b, p, 'Re: your trade offer', o.reply); return; }
+      if (!h.ok) { o.reply = this.tradeLine(b, 'decline', 'short'); this.p2pClose(o, 'declined', 'short'); this.note(p, `🤝 ${b.ruler} declined your trade: ${o.reply}`, 'bad'); if (chance(CFG.RAVEN_P.tradeReply)) this.tradeRaven(b, p, 'Re: your trade offer', o.reply); return; }
       this.p2pExecute(o, p, b);
       this.memRel(b, 0.5);
-      this.tradeRaven(b, p, 'Re: your trade offer', `${o.reply} You'll get ${this.bundleText(o.ask)} for ${this.bundleText(o.give)}; the caravans are on the road.`);
+      if (chance(CFG.RAVEN_P.tradeReply)) this.tradeRaven(b, p, 'Re: your trade offer', `${o.reply} You'll get ${this.bundleText(o.ask)} for ${this.bundleText(o.give)}; the caravans are on the road.`);
       return;
     }
     if (j.act === 'counter') {
@@ -5720,7 +5780,7 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
     this.p2pClose(o, 'declined', j.why);
     if (j.why === 'lowball') this.memRel(b, -0.5);
     this.note(p, `🤝 ${b.ruler} declined your trade: ${o.reply}`, 'bad');
-    this.tradeRaven(b, p, 'Re: your trade offer', o.reply);
+    if (chance(CFG.RAVEN_P.tradeReply)) this.tradeRaven(b, p, 'Re: your trade offer', o.reply);
   };
   // an offer FROM a bot to the player (fresh or a counter). The bot's side goes into escrow.
   P.botOffer = function (b, p, give, ask, opt = {}) {
@@ -5960,6 +6020,201 @@ if (typeof module !== 'undefined') module.exports = { Engine, GameError, CFG, DI
   const _from = Engine.fromJSON;
   Engine.fromJSON = function (json) { const e = _from.call(Engine, json); if (e.W.version < 8) e.migrateV8(); return e; };
   CFG.SAVE_VERSION = 8;
+})();
+
+;
+// Embergate 3.4: covenant banners (Diablo-style clan banners, drawn as inline SVG so they stay crisp offline),
+// the "banner" rank permission, and save version 9 (every covenant gets a banner; old saves get one generated
+// deterministically from the covenant id, so the same covenant always looks the same).
+(function () {
+  const E = Engine.prototype;
+  // ---------- banner parts ----------
+  const SHAPES = {
+    flat: { name: 'Flat', d: 'M8 8H92V130H8Z' },
+    pennant: { name: 'Pennant', d: 'M8 8H92V106L50 134L8 106Z' },
+    longpoint: { name: 'Long point', d: 'M8 8H92V92L50 136L8 92Z' },
+    swallow: { name: 'Swallowtail', d: 'M8 8H92V134L50 106L8 134Z' },
+    triple: { name: 'Three tails', d: 'M8 8H92V132L78 114L64 132L50 114L36 132L22 114L8 132Z' },
+    dovetail: { name: 'Dovetail', d: 'M8 8H92V120L71 134L50 120L29 134L8 120Z' },
+    shield: { name: 'Shield cut', d: 'M8 8H92V98Q92 126 50 136Q8 126 8 98Z' },
+    tattered: { name: 'Tattered', d: 'M8 8H92V118L85 128L77 116L67 132L58 119L48 134L40 118L30 130L20 115L13 127L8 121Z' }
+  };
+  // field layers (drawn inside the banner shape, 100 x 140 box)
+  const PATS = {
+    solid: { name: 'Solid', s: '<rect x="0" y="0" width="100" height="140"/>' },
+    perpale: { name: 'Halved (vertical)', s: '<rect x="50" y="0" width="50" height="140"/>' },
+    perfess: { name: 'Halved (horizontal)', s: '<rect x="0" y="70" width="100" height="70"/>' },
+    perbend: { name: 'Halved (diagonal)', s: '<path d="M0 0H100V140Z"/>' },
+    chief: { name: 'Chief', s: '<rect x="0" y="0" width="100" height="38"/>' },
+    base: { name: 'Base', s: '<rect x="0" y="100" width="100" height="40"/>' },
+    fess: { name: 'Fess band', s: '<rect x="0" y="56" width="100" height="26"/>' },
+    pale: { name: 'Pale band', s: '<rect x="37" y="0" width="26" height="140"/>' },
+    bend: { name: 'Bend', s: '<path d="M-10 18L18 -10L120 110L92 138Z"/>' },
+    chevron: { name: 'Chevron', s: '<path d="M0 104L50 62L100 104V132L50 90L0 132Z"/>' },
+    saltire: { name: 'Saltire', s: '<path d="M-6 8L8 -6L50 52L92 -6L106 8L60 70L106 132L92 146L50 88L8 146L-6 132L40 70Z"/>' },
+    cross: { name: 'Cross', s: '<path d="M39 0H61V56H100V78H61V140H39V78H0V56H39Z"/>' },
+    quarter: { name: 'Quarterly', s: '<path d="M50 0H100V70H50ZM0 70H50V140H0Z"/>' },
+    stripes: { name: 'Pales', s: '<path d="M14 0H28V140H14ZM43 0H57V140H43ZM72 0H86V140H72Z"/>' },
+    bars: { name: 'Bars', s: '<path d="M0 30H100V42H0ZM0 62H100V74H0ZM0 94H100V106H0Z"/>' },
+    checky: { name: 'Checky', s: (() => { let p = ''; for (let y = 0; y < 7; y++) for (let x = 0; x < 5; x++) if ((x + y) % 2) p += `M${x * 20} ${y * 20}h20v20h-20Z`; return `<path d="${p}"/>`; })() },
+    lozenge: { name: 'Lozenge', s: '<path d="M50 22L84 70L50 118L16 70Z"/>' },
+    rays: { name: 'Sunburst', s: (() => { let p = ''; for (let i = 0; i < 16; i += 2) { const a = i / 16 * Math.PI * 2, b = (i + 1) / 16 * Math.PI * 2; p += `M50 70L${(50 + 160 * Math.cos(a)).toFixed(1)} ${(70 + 160 * Math.sin(a)).toFixed(1)}L${(50 + 160 * Math.cos(b)).toFixed(1)} ${(70 + 160 * Math.sin(b)).toFixed(1)}Z`; } return `<path d="${p}"/>`; })() },
+    bordure: { name: 'Bordure', s: '<path fill-rule="evenodd" d="M0 0H100V140H0ZM16 16V124H84V16Z"/>' },
+    roundel: { name: 'Roundel', s: '<circle cx="50" cy="66" r="30"/>' }
+  };
+  const poly = (n, r1, r2, cx = 50, cy = 50, rot = -90) => { let p = ''; for (let i = 0; i < n * 2; i++) { const r = i % 2 ? r2 : r1, a = (rot + i * 180 / n) * Math.PI / 180; p += (i ? 'L' : 'M') + (cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a)).toFixed(1); } return p + 'Z'; };
+  const petals = () => { let s = ''; for (let i = 0; i < 6; i++) { const a = i * 60 * Math.PI / 180; s += `<circle cx="${(50 + 20 * Math.cos(a)).toFixed(1)}" cy="${(48 + 20 * Math.sin(a)).toFixed(1)}" r="14"/>`; } return s; };
+  // 28 sigils on a 100 x 100 grid; fill is the emblem colour ("ink" strokes use the same colour)
+  const EMBLEMS = {
+    skull: { name: 'Skull', s: '<path fill-rule="evenodd" d="M50 12C30 12 17 26 17 44c0 11 5 19 12 23v13h9v-7h6v7h12v-7h6v7h9V67c7-4 12-12 12-23C83 26 70 12 50 12ZM36 38a8 8 0 1 1 0 16a8 8 0 1 1 0-16ZM64 38a8 8 0 1 1 0 16a8 8 0 1 1 0-16ZM50 56l5 9H45Z"/>' },
+    sword: { name: 'Sword', s: '<path d="M43 14L50 2L57 14V66H43Z"/><path d="M24 64h52l-4 9H28Z"/><path d="M45 73h10v15H45Z"/><circle cx="50" cy="92" r="6"/>' },
+    swords: { name: 'Crossed swords', s: '<g transform="rotate(40 50 50)"><path d="M47 4h6l2 8v52H45V12Z"/><path d="M34 64h32v6H34Z"/><path d="M47 70h6v16h-6Z"/></g><g transform="rotate(-40 50 50)"><path d="M47 4h6l2 8v52H45V12Z"/><path d="M34 64h32v6H34Z"/><path d="M47 70h6v16h-6Z"/></g>' },
+    crown: { name: 'Crown', s: '<path d="M16 72L12 30L32 48L50 20L68 48L88 30L84 72Z"/><path d="M16 78H84V88H16Z"/><circle cx="50" cy="16" r="5"/><circle cx="11" cy="27" r="4"/><circle cx="89" cy="27" r="4"/>' },
+    flame: { name: 'Flame', s: '<path fill-rule="evenodd" d="M50 6c4 18 24 27 24 50a24 24 0 0 1-48 0c0-13 7-20 11-30c3 8 6 11 9 12C44 26 46 16 50 6ZM50 58c-4 6-9 10-9 16a9 9 0 0 0 18 0c0-6-5-10-9-16Z"/>' },
+    eye: { name: 'Watcher', s: '<path fill-rule="evenodd" d="M6 50c12-18 27-27 44-27s32 9 44 27C82 68 67 77 50 77S18 68 6 50ZM50 35a15 15 0 1 0 0 30a15 15 0 1 0 0-30Z"/><circle cx="50" cy="50" r="8"/>' },
+    moon: { name: 'Crescent', s: '<path d="M60 10A40 40 0 1 0 60 90A46 46 0 0 1 60 10Z"/><path d="' + poly(4, 9, 3, 70, 40, 0) + '"/>' },
+    sun: { name: 'Black sun', s: '<path d="' + poly(12, 44, 26) + '"/><circle cx="50" cy="50" r="20"/>' },
+    star: { name: 'Star', s: '<path d="' + poly(5, 44, 18, 50, 54) + '"/>' },
+    tower: { name: 'Tower', s: '<path fill-rule="evenodd" d="M26 12h11v8h6v-8h14v8h6v-8h11v22l-7 6v42h9v8H24v-8h9V40l-7-6ZM44 58h12v24H44ZM46 40h8v10h-8Z"/>' },
+    axe: { name: 'Axe', s: '<path d="M46 6h8v88h-8Z"/><path d="M54 16C63 16 71 10 77 4C88 18 88 42 77 58C71 51 63 47 54 47Z"/><path d="M46 16C37 16 29 10 23 4C12 18 12 42 23 58C29 51 37 47 46 47Z"/>' },
+    shield: { name: 'Shield', s: '<path fill-rule="evenodd" d="M50 8l36 11v25c0 23-15 40-36 48C29 84 14 67 14 44V19ZM50 20v61c14-7 24-20 24-36V27Z"/>' },
+    raven: { name: 'Raven', s: '<path d="M14 62c12-3 21-11 27-24c5-10 13-17 25-15l14 5l-11 4c5 7 5 16-2 25l16 16l-21-7c-10 7-23 7-34 2L16 78l3-13Z"/><circle cx="66" cy="31" r="2.5" fill="#000" fill-opacity=".5"/>' },
+    rose: { name: 'Rose', s: petals() + '<circle cx="50" cy="48" r="12" fill="#000" fill-opacity=".25"/><circle cx="50" cy="48" r="7"/><path d="M47 66h6v28h-6Z"/>' },
+    key: { name: 'Key', s: '<path fill-rule="evenodd" d="M28 18a18 18 0 1 1 0 36a18 18 0 1 1 0-36ZM28 28a8 8 0 1 0 0 16a8 8 0 1 0 0-16Z"/><path d="M44 32h46v9h-6v12h-9V41h-6v9h-9v-9H44Z"/>' },
+    chalice: { name: 'Chalice', s: '<path d="M24 12h52c0 26-11 39-22 43v18h15v9H31v-9h15V55C35 51 24 38 24 12Z"/><circle cx="50" cy="26" r="6" fill="#000" fill-opacity=".3"/>' },
+    spider: { name: 'Spider', s: '<circle cx="50" cy="40" r="10"/><ellipse cx="50" cy="64" rx="15" ry="19"/><path fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" d="M40 44L20 30L12 44M40 50L16 52L8 66M38 60L18 72L14 88M41 70L28 88L28 98M60 44L80 30L88 44M60 50L84 52L92 66M62 60L82 72L86 88M59 70L72 88L72 98"/>' },
+    serpent: { name: 'Serpent', s: '<path fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" d="M70 22c-18-10-42 0-34 16s34 10 32 30s-26 24-42 12"/><path d="M60 8l18 6l-4 16l-16-4Z"/>' },
+    helm: { name: 'Horned helm', s: '<path fill-rule="evenodd" d="M24 52c0-17 12-30 26-30s26 13 26 30v28H59V62H41v18H24ZM46 66h8v14h-8Z"/><path d="M26 46C12 42 6 26 10 12c5 13 12 19 21 22Z"/><path d="M74 46c14-4 20-20 16-34c-5 13-12 19-21 22Z"/>' },
+    trident: { name: 'Trident', s: '<path d="M47 36h6v58h-6Z"/><path d="M22 10h7v24c0 7 8 11 21 11s21-4 21-11V10h7v26c0 11-11 17-28 17S22 47 22 36Z"/><path d="M45 8l5-6l5 6v30H45Z"/>' },
+    tree: { name: 'Dead tree', s: '<path d="M45 94V62L26 44l5-5l14 13V30L34 18l5-5l9 10l10-14l5 4L52 30v24l16-18l5 5L55 62v32Z"/>' },
+    hammer: { name: 'Warhammer', s: '<path d="M20 14h60v24H20Z"/><path d="M46 38h8v56h-8Z"/><path d="M42 38h16v6H42Z"/>' },
+    scythe: { name: 'Scythe', s: '<path d="M62 6h7L53 94h-7Z"/><path d="M64 12C40 8 16 20 8 42c15-13 35-17 54-14Z"/>' },
+    bolt: { name: 'Thunder', s: '<path d="M60 4L22 56h22l-9 40l43-56H56Z"/>' },
+    wings: { name: 'Wings', s: '<path d="M46 40C34 22 16 16 4 18c6 6 8 12 8 18c-4 2-6 6-6 10c6-2 10-1 13 1c-2 4-2 8 0 12c5-4 10-5 14-4c0 5 3 9 7 11Z"/><path d="M54 40c12-18 30-24 42-22c-6 6-8 12-8 18c4 2 6 6 6 10c-6-2-10-1-13 1c2 4 2 8 0 12c-5-4-10-5-14-4c0 5-3 9-7 11Z"/><circle cx="50" cy="52" r="8"/>' },
+    bones: { name: 'Crossed bones', s: '<g transform="rotate(45 50 50)"><rect x="45" y="12" width="10" height="76" rx="4"/><circle cx="44" cy="13" r="7"/><circle cx="56" cy="13" r="7"/><circle cx="44" cy="87" r="7"/><circle cx="56" cy="87" r="7"/></g><g transform="rotate(-45 50 50)"><rect x="45" y="12" width="10" height="76" rx="4"/><circle cx="44" cy="13" r="7"/><circle cx="56" cy="13" r="7"/><circle cx="44" cy="87" r="7"/><circle cx="56" cy="87" r="7"/></g>' },
+    heart: { name: 'Bleeding heart', s: '<path d="M50 84C20 62 10 46 10 32a20 20 0 0 1 40-6a20 20 0 0 1 40 6c0 14-10 30-40 52Z"/><path d="M47 84h6l-3 12Z"/>' },
+    wolf: { name: 'Wolf', s: '<path fill-rule="evenodd" d="M18 14l17 16h30l17-16l-4 34l-9 11l-9 25H40l-9-25l-9-11ZM34 44l10 4l-2 6l-9-4ZM66 44l-10 4l2 6l9-4Z"/>' },
+    pentacle: { name: 'Rune circle', s: '<path fill-rule="evenodd" d="M50 6a44 44 0 1 1 0 88a44 44 0 1 1 0-88ZM50 14a36 36 0 1 0 0 72a36 36 0 1 0 0-72Z"/><path fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" d="M50 16L70 78L18 40H82L30 78Z"/>' },
+    dragon: { name: 'Dragon', s: '<path d="M14 74c10-2 18-8 22-18c-8 0-14-4-16-10c8 2 14 1 18-3c-6-3-9-9-8-15c6 5 13 7 19 5c2-10 10-17 22-18l-6 8c7 1 13 6 15 12l-10-2c4 8 2 18-6 24l8 14l-12-6c-6 6-16 10-26 10l-8 10l-4-8l-10 4Z"/><circle cx="64" cy="26" r="2.5" fill="#000" fill-opacity=".5"/>' }
+  };
+  const TRIMS = { none: 'None', thin: 'Thin edge', double: 'Double edge', studded: 'Studded', gilded: 'Gilded', runic: 'Runic stitch' };
+  const TEX = { none: 'None', linen: 'Linen weave', weathered: 'Weathered', scales: 'Scales', damask: 'Damask', embers: 'Embers' };
+  const PALETTE = ['#5a0f12', '#8c1c1c', '#c8372d', '#e0782a', '#c9a54a', '#e8d9a8', '#d8d1bd', '#b8bcc6', '#6d7380', '#1d1d22', '#0b0b0d', '#2a0f3a', '#5b2a86', '#0f2a3d', '#2f5f8a', '#7fb3c9', '#102c2c', '#14311f', '#3f6b35', '#3d2612', '#9c5a2a', '#3a0d24'];
+  const FIELDS = ['#5a0f12', '#2a0f3a', '#0f2a3d', '#14311f', '#1d1d22', '#3d2612', '#6b1b0f', '#3a0d24', '#102c2c', '#2b2b45', '#0b0b0d', '#4a1a10'];
+  const METALS = ['#c9a54a', '#b8bcc6', '#9c5a2a', '#d8d1bd', '#e0782a', '#7fb3c9', '#c8372d'];
+  const HEX = /^#[0-9a-f]{6}$/i;
+  const V = E;
+  V.BANNER = { SHAPES, PATS, EMBLEMS, TRIMS, TEX, PALETTE, SWATCH: ['#5a0f12', '#c8372d', '#e0782a', '#c9a54a', '#d8d1bd', '#b8bcc6', '#1d1d22', '#0b0b0d', '#2a0f3a', '#0f2a3d', '#7fb3c9', '#14311f', '#3d2612'] };
+  // deterministic generator (same covenant id -> same banner)
+  const seeded = str => { let h = 2166136261; for (const c of String(str)) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return () => { h += 0x6D2B79F5; let t = h; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; };
+  V.genBanner = function (seed) {
+    const r = seeded('banner:' + seed), pk = a => a[Math.floor(r() * a.length)];
+    const field = pk(FIELDS), metal = pk(METALS), alt = pk(FIELDS.filter(c => c !== field));
+    const layers = [{ p: 'solid', c: field }];
+    if (r() < 0.75) layers.push({ p: pk(['perpale', 'perfess', 'perbend', 'chief', 'base', 'fess', 'pale', 'bend', 'chevron', 'saltire', 'cross', 'quarter', 'bordure', 'lozenge', 'rays', 'roundel']), c: r() < 0.6 ? alt : metal });
+    if (layers.length > 1 && r() < 0.3) layers.push({ p: pk(['chief', 'base', 'bordure', 'fess', 'pale', 'bars', 'stripes']), c: r() < 0.5 ? metal : pk(FIELDS) });
+    return { v: 1, shape: pk(Object.keys(SHAPES)), layers, emblem: pk(Object.keys(EMBLEMS)), ec: metal === layers[layers.length - 1].c ? '#d8d1bd' : metal, trim: pk(['thin', 'double', 'studded', 'gilded', 'runic', 'thin']), tc: pk(METALS), tex: r() < 0.5 ? pk(['linen', 'weathered', 'damask', 'scales', 'embers']) : 'none' };
+  };
+  V.cleanBanner = function (b) {
+    if (!b || typeof b !== 'object') throw new GameError('No banner given');
+    const col = (c, d) => HEX.test(c || '') ? String(c).toLowerCase() : d;
+    const layers = (Array.isArray(b.layers) ? b.layers : []).slice(0, 3).map((l, i) => ({ p: PATS[l && l.p] ? (i === 0 ? 'solid' : l.p) : 'solid', c: col(l && l.c, '#5a0f12') }));
+    if (!layers.length) layers.push({ p: 'solid', c: '#5a0f12' });
+    return { v: 1, shape: SHAPES[b.shape] ? b.shape : 'pennant', layers, emblem: EMBLEMS[b.emblem] || b.emblem === 'none' ? b.emblem : 'skull', ec: col(b.ec, '#c9a54a'), trim: TRIMS[b.trim] ? b.trim : 'thin', tc: col(b.tc, '#c9a54a'), tex: TEX[b.tex] ? b.tex : 'none' };
+  };
+  V.bannerOf = function (g) { if (!g) return null; if (!g.banner) g.banner = this.genBanner(g.id); return g.banner; };
+  V.setBanner = function (k, b) {
+    const g = this.requirePerm(k, 'banner'), nb = this.cleanBanner(b);
+    if (JSON.stringify(nb) === JSON.stringify(g.banner)) return 'The banner is unchanged.';
+    g.banner = nb; this.guildSys(g, `🏴 ${k.ruler} raised a new banner for ${g.name}.`);
+    this.cnt && this.cnt(k, 'banner');
+    return 'New banner raised.';
+  };
+  // ---------- SVG renderer ----------
+  let UID = 0;
+  const texDef = (id, t) => ({
+    linen: `<pattern id="${id}" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 0H4M0 2H4" stroke="#fff" stroke-opacity=".07" stroke-width=".6"/><path d="M0 0V4" stroke="#000" stroke-opacity=".12" stroke-width=".6"/></pattern>`,
+    weathered: `<pattern id="${id}" width="23" height="19" patternUnits="userSpaceOnUse"><circle cx="4" cy="5" r="2.2" fill="#000" fill-opacity=".22"/><circle cx="15" cy="12" r="3.2" fill="#000" fill-opacity=".14"/><circle cx="19" cy="3" r="1.2" fill="#fff" fill-opacity=".08"/><path d="M2 15l6-2" stroke="#000" stroke-opacity=".2"/></pattern>`,
+    scales: `<pattern id="${id}" width="10" height="8" patternUnits="userSpaceOnUse"><path d="M0 8a5 5 0 0 1 10 0M-5 4a5 5 0 0 1 10 0M5 4a5 5 0 0 1 10 0" fill="none" stroke="#000" stroke-opacity=".28" stroke-width=".8"/></pattern>`,
+    damask: `<pattern id="${id}" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M7 1L13 7L7 13L1 7Z" fill="none" stroke="#fff" stroke-opacity=".08"/><circle cx="7" cy="7" r="1.4" fill="#fff" fill-opacity=".08"/></pattern>`,
+    embers: `<pattern id="${id}" width="26" height="30" patternUnits="userSpaceOnUse"><circle cx="5" cy="24" r="1.1" fill="#ffb04a" fill-opacity=".45"/><circle cx="18" cy="9" r=".8" fill="#ffd27a" fill-opacity=".4"/><circle cx="22" cy="26" r=".6" fill="#ff7a2a" fill-opacity=".5"/></pattern>`
+  }[t] || '');
+  V.bannerSVG = function (b, o = {}) {
+    b = b ? this.cleanBanner(b) : this.genBanner('x');
+    const h = o.h || 64, w = Math.round(h * 100 / 140), id = 'bn' + (++UID), sh = SHAPES[b.shape].d, small = h < 40;
+    const tw = { none: 0, thin: 2.5, double: 2.2, studded: 2, gilded: 5, runic: 2 }[b.trim];
+    let trim = '';
+    if (b.trim === 'thin') trim = `<path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="${tw * 2}" clip-path="url(#${id}c)"/>`;
+    else if (b.trim === 'double') trim = `<path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="3" clip-path="url(#${id}c)"/><path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="13" stroke-opacity=".55" stroke-dasharray="0" clip-path="url(#${id}c)" mask="url(#${id}m)"/>`;
+    else if (b.trim === 'studded') trim = `<path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="3" clip-path="url(#${id}c)"/>` + (small ? '' : `<path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="0 9" transform="translate(50 70) scale(.9) translate(-50 -70)"/>`);
+    else if (b.trim === 'gilded') trim = `<path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="10" clip-path="url(#${id}c)"/><path d="${sh}" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1" transform="translate(50 70) scale(.92) translate(-50 -70)"/>`;
+    else if (b.trim === 'runic') trim = `<path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="2" clip-path="url(#${id}c)"/><path d="${sh}" fill="none" stroke="${b.tc}" stroke-width="1.6" stroke-dasharray="5 3" transform="translate(50 70) scale(.88) translate(-50 -70)"/>`;
+    const em = b.emblem !== 'none' && EMBLEMS[b.emblem] ? `<g transform="translate(20 ${b.shape === 'longpoint' ? 26 : 32}) scale(.6)" fill="${b.ec}" color="${b.ec}" stroke="none">${EMBLEMS[b.emblem].s}</g>` : '';
+    const tex = b.tex !== 'none' && !small ? texDef(id + 't', b.tex) : '';
+    return `<svg class="banner ${o.cls || ''}" viewBox="0 0 100 140" width="${w}" height="${h}" role="img" aria-label="${o.label ? String(o.label).replace(/[<>&"]/g, '') : 'Covenant banner'}" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="${id}c"><path d="${sh}"/></clipPath>${b.trim === 'double' ? `<mask id="${id}m"><rect width="100" height="140" fill="#fff"/><path d="${sh}" fill="#000" transform="translate(50 70) scale(.86) translate(-50 -70)"/></mask>` : ''}${tex}<linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".35"/><stop offset=".35" stop-color="#fff" stop-opacity=".06"/><stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></linearGradient></defs>
+<g clip-path="url(#${id}c)">${b.layers.map(l => `<g fill="${l.c}">${PATS[l.p].s}</g>`).join('')}${tex ? `<rect width="100" height="140" fill="url(#${id}t)"/>` : ''}${em}<rect width="100" height="140" fill="url(#${id}g)"/></g>${trim}
+<rect x="2" y="3" width="96" height="6" rx="3" fill="#2a2420"/><rect x="2" y="3" width="96" height="2" rx="1" fill="#6d6257"/><circle cx="3" cy="6" r="4" fill="${b.tc}"/><circle cx="97" cy="6" r="4" fill="${b.tc}"/></svg>`;
+  };
+  V.guildBannerSVG = function (gid, o) { const g = this.W.guilds[gid]; return g ? this.bannerSVG(this.bannerOf(g), Object.assign({ label: `${g.name} banner` }, o)) : ''; };
+  // ---------- permission + engine hooks ----------
+  if (!V.PERMS.includes('banner')) V.PERMS.push('banner');
+  V.PERM_NAMES.banner = 'Edit the banner';
+  const fixPerms = g => { if (g && g.perms && g.perms.officer && g.perms.officer.banner === undefined) { g.perms.officer.banner = true; for (const r of ['elder', 'member', 'recruit']) if (g.perms[r]) g.perms[r].banner = false; } };
+  const _er = V.ensureRanks; V.ensureRanks = function (g) { const r = _er.call(this, g); fixPerms(g); return r; };
+  const _cg = V.createGuildRaw; V.createGuildRaw = function (k, name, tag, desc) { const g = _cg.call(this, k, name, tag, desc); fixPerms(g); g.banner = this.genBanner(g.id); return g; };
+  // player leaving: two-step confirm lives in the UI; a leader with members must name an heir (or the mightiest takes the crown)
+  const _lg = V.leaveGuild; V.leaveGuild = function (k, heir) {
+    const g = k && k.guildId && this.W.guilds[k.guildId];
+    if (g && g.leader === k.id && g.members.length > 1 && heir) this.transferLeader(k, heir);
+    return _lg.call(this, k);
+  };
+  // Ravens from other rulers' actions (v3.4). Guaranteed: being attacked, incoming trade offers and counters,
+  // covenant invitations, direct letters. Everything else only sometimes, so the inbox isn't a log of every event
+  // (the Defence log, Missives and toasts still show every one).
+  CFG.RAVEN_P = { spyCaught: 0.4, spyTaunt: 0.05, hexHit: 0.3, hexWarded: 0.15, inviteAccept: 0.5, inviteDecline: 0.25, appAccept: 0.6, appDecline: 0.3, tradeReply: 0.35 };
+  Object.assign(RAVENS, {
+    sackedYou: ['Your gates were weaker than your boasts, {to}. {gold} gold and {land} acres now fly the colours of {realm}.', 'We came at dusk and left at dawn. Count your losses: {gold} gold, {land} acres. Build higher walls.', 'Nothing personal, {to}. Your granary was full and my soldiers were hungry. ({gold} gold, {land} acres)', 'You will find {realm}\'s mark burned into your gatehouse. Thank you for the {gold} gold.'],
+    repelledBy: ['Your Wardens held today, {to}. They will not hold forever.', 'A lucky stand. My Vanguard will be back once the wounded can walk.', 'Well defended, I admit it. I misjudged your walls. It will not happen twice.', 'You bloodied my nose at your gates. Enjoy it; {realm} remembers.'],
+    spyCaught: ['So your Watchers caught my Shades. A pity; they were good at their trade. ({lost} lost)', 'Curious, that is all. A ruler likes to know their neighbours. Your Watchers are sharp, {to}.', 'You found my Shades. Next time you will not.', 'My spies say your Watchers have long knives. I will remember that.'],
+    spyTaunt: ['I know what sits in your vaults, {to}. Sleep well.', 'My Shades enjoyed the tour of your realm. Lovely walls. Thin, but lovely.'],
+    hexHit: ['Did you enjoy the {spell}, {to}? There is more where that came from.', 'A little {spell} to remind you that {realm} is watching.'],
+    hexWarded: ['Your mages are better than I thought. The {spell} was only a greeting.', 'Fine wards, {to}. My Embermages are still arguing about what went wrong.'],
+  });
+  V.ravenMaybe = function (from, to, kind, subject, extra, force) {
+    if (!from || !to || to.isBot || !from.isBot || !RAVENS[kind]) return false;
+    if (!force && !chance(CFG.RAVEN_P[kind] != null ? CFG.RAVEN_P[kind] : 0)) return false;
+    this.queue(this.botDelay ? this.botDelay(from, 10, 180) : rint(10, 180) * 1000, { type: 'mail', from: from.id, to: to.id, subject, body: fill(pick(RAVENS[kind]), this.vars(from, to, extra || {})) });
+    return true;
+  };
+  // being attacked always brings a raven from the attacker (won: a taunt with the toll; repelled: a grudging note)
+  V.ravenAttacked = function (a, t, r, win) {
+    const ex = { target: t.name, gold: fmt(r.gold || 0), land: r.land || 0 };
+    const tpl = win ? (chance(0.5) && CHAT.trash && CHAT.trash[a.persona] ? CHAT.trash[a.persona] : RAVENS.sackedYou) : RAVENS.repelledBy;
+    this.queue(rint(10, 120) * 1000, { type: 'mail', from: a.id, to: t.id, subject: win ? 'Your walls' : 'Your gates held', body: fill(pick(tpl), this.vars(a, t, ex)) });
+  };
+  // Ravens: "Read all" (v3.4). Returns how many letters were marked read.
+  V.markAllMailRead = function (k) { let n = 0; for (const id in this.W.mail) { const m = this.W.mail[id]; if (m.to === k.id && !m.read) { m.read = true; n++; } } return n; };
+  V.unreadMailCount = function (k) { let n = 0; for (const id in this.W.mail) { const m = this.W.mail[id]; if (m.to === k.id && !m.read) n++; } return n; };
+  // A covenant can drop below its member count when its tier fades (tier slots shrink). With bots now loyal, nobody
+  // would leave to fix that, so the newest, lowest-ranked bot members are released (rare; counted in _overflow).
+  const _wct = V.worldClanTick;
+  V.worldClanTick = function () {
+    _wct.call(this);
+    const W = this.W, K = W.kingdoms, RK = { recruit: 0, member: 1, elder: 2, officer: 3 };
+    for (const g of Object.values(W.guilds)) {
+      let over = g.members.length - this.guildCap(g); if (over <= 0) continue;
+      const pool = g.members.map(id => K[id]).filter(k => k && k.isBot && k.id !== g.leader).sort((x, y) => (RK[this.rankIn(g, x.id)] || 0) - (RK[this.rankIn(g, y.id)] || 0) || this.might(x) - this.might(y));
+      for (const b of pool) { if (over-- <= 0) break; this.leaveGuildRaw(b); this._overflow = (this._overflow || 0) + 1; this.guildSys(g, `${b.ruler} of ${b.name} was released: the covenant has no room for them since its tier faded.`); }
+    }
+  };
+  V.migrateV9 = function () {
+    let n = 0; for (const g of Object.values(this.W.guilds || {})) { if (!g.banner) { g.banner = this.genBanner(g.id); n++; } fixPerms(g); }
+    const W = this.W; W.flags = W.flags || {}; const fm = W.flags.migrated = Object.assign({}, W.flags.migrated || {});
+    fm.v34 = { banners: n, also33: !!(fm.notice && fm.v33) }; fm.notice = true; W.version = 9;
+  };
+  const _from = Engine.fromJSON;
+  Engine.fromJSON = function (json) { const e = _from.call(Engine, json); if (e.W.version < 9) e.migrateV9(); return e; };
+  CFG.SAVE_VERSION = 9;
 })();
 
 ;
@@ -6276,7 +6531,7 @@ function sideArt() {
     d.style.backgroundImage = `url('${img(f)}')`; document.body.insertBefore(d, document.body.firstChild);
   }
 }
-const VERSION = '3.3.0';
+const VERSION = '3.4.0';
 const TK = () => CFG.TICK_MS;
 const tl = ticks => dur(Math.max(0, ticks) * CFG.TICK_MS);
 const mmss = ms => { ms = Math.max(0, ms); const m = Math.floor(ms / 60000), s = Math.floor(ms / 1000) % 60; return m + ':' + String(s).padStart(2, '0'); };
@@ -6320,7 +6575,7 @@ const TIPS = {
   armory: ['⚒ Armory', 'Only the four fighting units wear equipment, one piece each: Armour for Vanguard (+offense), Shields for Wardens (+defense), Cloaks for Shades (+spy) and Watch gear for Watchers (+sentry). There are no weapons or tools. Unequipped units get no bonus; the per-unit bonus is shown in Army → Unit stats. Best tiers are used first. Six tiers (Iron, Steel, Runed, Emberforged, Starmetal, Mythic) unlock Dark Throne style: each needs more Armories, a higher Armory or War Forge building tier and a minimum level. Each Armory cuts equipment cost 1% (max 25%, +5% per Armory tier). Units lost in battle destroy the same share of that unit\'s gear.'],
   level: ['⭐ Levels', 'XP comes only from fighting: attacking and defending (more for a fair or stronger foe, less for repeatedly hitting the same realm), striking the Embergate and the world boss, and covenant event rewards. Spending gold (training, building, research, gear), exploring, trading and buying ale give no XP. Each source has a daily cap that grows with your level, so nobody can buy or grind levels. The level cap is 100 and each level needs more XP than the last. Levels unlock building and armory tiers. You can only attack or spy on realms within 10 levels of yours. Prices rise 1% per level and stop rising at level 75.'],
   tiers: ['🏗 Building tiers', 'Upgrade a building type from tier I to IV to multiply what every building of that type produces, with no extra land. Each tier needs the one before, a minimum level and gold (the price grows with how many of that building you own and with your level). Rivals upgrade too.'],
-  intel: ['👁 Fair rivals', 'Rivals never read your hidden numbers. Bots see only your public profile: name, level, race, calling, land, rank, prestige (from land, level and renown), covenant, title, bio and avatar. Gold, army, offense, defense, units and buildings stay hidden. They learn more only when their Shades succeed (a timestamped snapshot that can be a little off and goes stale after about 6 hours) or when they meet your walls in battle. Spy attempts on you, caught or not, show in War → Defence log.']
+  intel: ['👁 Fair rivals', 'Rivals never read your hidden numbers. Bots see only your public profile: name, level, race, calling, land, rank, might (from land, level and renown), covenant, title, bio and avatar. Gold, army, offense, defense, units and buildings stay hidden. They learn more only when their Shades succeed (a timestamped snapshot that can be a little off and goes stale after about 6 hours) or when they meet your walls in battle. Spy attempts on you, caught or not, show in War → Defence log.']
 };
 function tip(key) { const t = TIPS[key]; if (t) sheet(`<h3>${esc(t[0])}</h3><p class="small">${esc(t[1])}</p><button class="wide" data-close>Got it</button>`); }
 const XP_NEED = L => (typeof XP_TABLE !== 'undefined' ? XP_TABLE[L] : 0);
@@ -6328,7 +6583,7 @@ function xpInfo(k) { const L = S.E.level(k), a = XP_NEED(L), b = XP_NEED(Math.mi
 const SFX = (n, h) => { try { if (typeof Sound !== 'undefined') { Sound.play(n); if (h) Sound.buzz(h); } } catch (e) { } };
 const tipBtn = key => `<button class="tip" data-tip="${key}" aria-label="What is this?" title="${esc(TIPS[key][1])}">ⓘ</button>`;
 
-const S = { E: null, view: 'citadel', chatCh: 'global', rankBy: 'might', warTab: 'near', warQ: '', covQ: '', covF: 'all', unread: { global: 0, recruit: 0, guild: 0 }, dirty: false, busy: false, lastTick: -1, cre: { race: 'aurelian', cls: 'warlord', diff: 'easy' }, errors: [] };
+const S = { E: null, covTab: 'overview', bnDraft: null, view: 'citadel', chatCh: 'global', rankBy: 'might', warTab: 'near', warQ: '', covQ: '', covF: 'all', unread: { global: 0, recruit: 0, guild: 0 }, dirty: false, busy: false, lastTick: -1, cre: { race: 'aurelian', cls: 'warlord', diff: 'easy' }, errors: [] };
 window.addEventListener('error', e => S.errors.push(String(e.message)));
 
 // ---------- feedback ----------
@@ -6347,7 +6602,12 @@ function sheet(html, opts = {}) {
   document.body.appendChild(ov);
   return ov;
 }
-function closeSheet() { const s = $('#sheet'); if (s) s.remove(); }
+function closeSheet() {
+  const s = $('#sheet'); if (!s) return;
+  const th = s.dataset.thread; s.remove();
+  // v3.4: a raven that landed while the letter was open counts as read when you back out
+  if (th && S.E) { const me = S.E.player(), had = S.E.unreadMailCount(me); S.E.markThreadRead(me, th); if (S.E.unreadMailCount(me) !== had) { S.dirty = true; renderNav(); if (S.view === 'ravens') renderView(); } }
+}
 function confirmBox(msg, okText = 'Confirm', danger = false) {
   return new Promise(res => {
     const ov = sheet(`<h3>${esc(msg)}</h3><div class="row" style="margin-top:1rem"><button class="alt" id="cf-no" style="flex:1">Cancel</button><button class="${danger ? '' : 'gold'}" id="cf-yes" style="flex:1">${esc(okText)}</button></div>`, { noClose: true });
@@ -6410,6 +6670,14 @@ function migrationNotice() {
   // cleared only once the note has been on screen a while (or dismissed), so an update reload right after migration doesn't swallow it
   const done = () => { if (m.notice) { m.notice = false; S.dirty = true; } };
   setTimeout(() => { const b = document.querySelector('#sheet [data-close]'); if (b) b.addEventListener('click', done); setTimeout(done, 8000); }, 600);
+  if (m.v34) return setTimeout(() => sheet(`<h2>⚜ Embergate ${VERSION}</h2><p class="small">Your realm was carried over. Gold, land, army, research, covenant, ravens and chat are all kept.</p>
+    <ul class="small"><li><b>🏴 Covenant banners</b>: every covenant now flies a banner (${n(m.v34.banners)} were raised for existing covenants). Leaders and Officers design theirs in Covenant › Settings.</li>
+    <li><b>🛡 No fighting your own</b>: you can't attack, spy on or hex covenant-mates, and neither can rulers.</li>
+    <li><b>⚜ A tidier covenant screen</b>: Overview, Events, Members, Chat and Settings. Leave Covenant is in Settings, behind a confirmation.</li>
+    <li><b>Loyal members</b>: rulers rarely leave, and only for a stronger covenant with room.</li>
+    <li><b>Might</b> is now the one power measure everywhere; "prestige" is gone.</li>
+    <li><b>🐦 Ravens</b>: "Read all", opened letters are read at once, and fewer automatic ravens (always for attacks, invitations, trade offers and letters).</li>
+    ${m.v34.also33 ? `<li>Also from 3.3: ${n(CFG.BOT_COUNT || 12000)} rulers, covenants of up to ${CFG.GUILD_MAX}, and event goals that grow with covenant size.</li>` : ''}</ul><button class="wide" data-close>Onward</button>`), 400);
   if (m.v33) return setTimeout(() => sheet(`<h2>⚜ Embergate ${VERSION}</h2><p class="small">Your realm was carried over. Gold, land, army, research, covenant, ravens and chat are all kept.</p>
     <ul class="small"><li><b>👥 ${n(m.v33.botsAfter)} rulers</b>: the province grew from ${n(m.v33.botsBefore)}. Newcomers are spread across levels 1-50; every existing realm is unchanged.</li>
     <li><b>⚜ Covenants of up to ${CFG.GUILD_MAX}</b>: 50 members at level 1, +5 per covenant level (Diamond +5, Mythic +10).</li>
@@ -6440,7 +6708,7 @@ function hookEngine() {
     if (S.catching) return;
     if (type === 'chat') onChat(d);
     else if (type === 'note') { if (!/ Achievement: /.test(d.text)) toast(d.text, d.type === 'bad' ? 'err' : d.type === 'good' ? 'good' : ''); }
-    else if (type === 'mail') { SFX('raven'); toast('🐦 A raven from ' + (S.E.W.kingdoms[d.from] ? S.E.W.kingdoms[d.from].ruler : d.fromName) + ': ' + d.subject); renderNav(); if (S.view === 'ravens') renderView(); }
+    else if (type === 'mail') { { const sh = $('#sheet'); if (sh && sh.dataset.thread === d.from) S.E.markThreadRead(S.E.player(), d.from); } SFX('raven'); toast('🐦 A raven from ' + (S.E.W.kingdoms[d.from] ? S.E.W.kingdoms[d.from].ruler : d.fromName) + ': ' + d.subject); renderNav(); if (S.view === 'ravens') renderView(); }
     else if (type === 'gate') { if (d && d.type === 'open') SFX('horn', 'medium'); if (S.view === 'gate' || S.view === 'citadel') S.needRender = true; }
     else if (type === 'boss') { if (d.type === 'spawn') { SFX('roar', 'heavy'); toast(`🐉 ${d.name} has appeared! Rally in More › World boss.`); } else if (d.type === 'kill') { SFX('victory', 'success'); } if (S.view === 'boss' || S.view === 'citadel') S.needRender = true; }
     else if (type === 'trade') { SFX('bell', 'light'); renderNav(); if (S.view === 'trade') S.needRender = true; }
@@ -6524,6 +6792,7 @@ function tickLoop() {
     const typing = document.activeElement && document.activeElement.matches('input,textarea,select');
     if (!typing && !$('#sheet') && ['citadel', 'gate', 'boss', 'trade', 'arcanum', 'quests'].includes(S.view)) renderView();
     if (S.view === 'tavern') { const o = $('#online-n'); if (o) o.textContent = E.onlineBots().length; }
+    if (S.view === 'covenant') { const o = $('#gonline-n'), g = E.myGuild(); if (o && g) o.textContent = `${roster0(g)} of ${g.members.length}`; } // v3.4: covenant members online, not the whole province
   }
 }
 
@@ -6719,7 +6988,7 @@ function vCitadel(el) {
     <div class="xprow" data-tip="level" role="button"><span class="small">⭐ Level ${c.level}${c.level >= CFG.LEVEL_CAP ? ' (max)' : ''}</span><div class="eqbar"><i style="width:${xpInfo(k).pct.toFixed(1)}%"></i></div><span class="small mute">${c.level >= CFG.LEVEL_CAP ? 'cap reached' : `${n(xpInfo(k).cur)} / ${n(xpInfo(k).need)} XP`}</span></div>
     ${st.protected ? `<p class="good small">🛡 Novice Ward: safe from attack for ${st.protectedTicks} more ticks (~${tl(st.protectedTicks)}; attacking ends it).</p>` : ''}
     <div class="stats" style="margin-top:.6rem">
-      <div class="stat"><div class="k">MIGHT <small>(private)</small></div><div class="v">${short(c.might)}</div></div>
+      <div class="stat"><div class="k">MIGHT</div><div class="v">${short(c.might)}</div></div>
       <div class="stat"><div class="k">OFFENSE</div><div class="v">${short(c.offense)}</div></div>
       <div class="stat"><div class="k">DEFENSE</div><div class="v">${short(c.defense)}</div></div>
       <div class="stat"><div class="k">SPY</div><div class="v">${short(c.spy)}</div></div>
@@ -6763,12 +7032,11 @@ function vNews(el) {
 
 // ---------- Army ----------
 function vArmy(el) {
-  const E = S.E, st = E.myState(), k = st.k, U = D.UNITS, US = E.unitStats(k);
+  const E = S.E, st = E.myState(), k = st.k, U = D.UNITS; // v3.4: the per-soldier stat strip under each unit is gone; the Unit stats table below keeps every number
   el.innerHTML = `<div class="panel"><h2>⚔ Barracks</h2>
     <p class="mute small">Train idle citizens into soldiers. <b class="goldc">${n(k.units.citizen)}</b> idle citizens, <b class="goldc">${n(k.gold)}</b> gold.${st.calc.forgeDiscount ? ` War Forges cut costs by ${Math.round(st.calc.forgeDiscount * 100)}%.` : ''}</p>
     <div class="list">${Object.entries(U).map(([u, x]) => `<div class="item"><div class="h"><b>${esc(x.name)}</b><span class="spacer"></span><span class="small">${n(k.units[u])} owned</span></div>
       <div class="d">${esc(x.desc)} · <span class="goldc">${n(st.prices.train[u])}g</span> each</div>
-      <div class="d small ustat">${unitStatChips(US.rows.find(r => r.unit === u))}</div>
       <div class="act"><input type="number" inputmode="numeric" min="1" id="q-${u}" placeholder="Amount"><button class="alt sm" data-max="${u}">Max</button><button class="sm" data-train="${u}">Train</button></div></div>`).join('')}</div></div>
     <div class="panel"><h3>Release soldiers</h3><p class="mute small">Send units back to the fields as idle citizens (no refund).</p>
       <select id="rel-u">${Object.entries(U).map(([u, x]) => `<option value="${u}">${esc(x.name)} (${n(k.units[u])})</option>`).join('')}</select>
@@ -6784,17 +7052,11 @@ function vArmy(el) {
 
 const STAT_L = { off: '⚔ Off', def: '🛡 Def', spy: '👁 Spy', sentry: '🔭 Sentry' };
 const nd1 = v => (Math.round(v * 10) / 10).toLocaleString('en-US');
-function unitStatChips(r) {
-  if (!r) return '';
-  const st = ['off', 'def', 'spy', 'sentry'].filter(s => r.base[s] || r.gear[s]);
-  if (!st.length) return '<span class="mute">No combat stats (works the land)</span>';
-  return 'Per soldier: ' + st.map(s => `${STAT_L[s]} <b>${nd1(r.base[s])}</b>${r.gear[s] ? ` + <span class="good">${nd1(r.gear[s])} gear</span>` : ''} → <b>${nd1(r.final[s])}</b>`).join(' · ') + (r.slot ? ` <span class="mute">(${r.best ? `best ${esc(r.best)} +${nd1(r.bestBonus)}` : `no ${esc(r.slot.toLowerCase())} yet`})</span>` : '');
-}
 // v3.1: restored per-unit stats table (base per soldier, with gear, final with modifiers, totals)
 function unitStatsPanel(E, k) {
   const S2 = E.unitStats(k), cols = ['off', 'def', 'spy', 'sentry'];
   const cell = (r, s) => r.base[s] || r.gear[s] ? `<td class="num">${nd1(r.base[s])}${r.gear[s] ? `<br><span class="good small">+${nd1(r.gear[s])}</span>` : ''}<br><b class="small">${nd1(r.final[s])}</b></td>` : '<td class="num mute">–</td>';
-  return `<div class="panel" id="unit-stats"><h3>📊 Unit stats</h3>
+  return `<div class="panel" id="unit-stats"><h3>Unit stats</h3>
     <p class="mute small">Per soldier: base, <span class="good">+ average equipment bonus</span>, then <b>final</b> with your modifiers (offense ${S2.mods.off >= 0 ? '+' : ''}${S2.mods.off}%, defense ${S2.mods.def >= 0 ? '+' : ''}${S2.mods.def}%, spy ${S2.mods.spy >= 0 ? '+' : ''}${S2.mods.spy}%, sentry ${S2.mods.sentry >= 0 ? '+' : ''}${S2.mods.sentry}%, morale ${S2.morale}%). Totals are what the whole unit adds.</p>
     <div class="tscroll"><table class="ustats"><tr><th>Unit</th><th class="num">Owned</th>${cols.map(c => `<th class="num" title="${STAT_L[c]}">${STAT_L[c].split(' ')[0]}<div class="small mute">${STAT_L[c].split(' ')[1]}</div></th>`).join('')}</tr>
     ${S2.rows.map(r => `<tr><td><b>${esc(r.name)}</b>${r.slot ? `<div class="mute small">${esc(r.slot)}</div>` : ''}</td><td class="num">${n(r.n)}${r.slot ? `<div class="mute small">${n(r.equipped)} geared</div>` : ''}</td>${cols.map(c => cell(r, c)).join('')}</tr>`).join('')}
@@ -6917,11 +7179,13 @@ function pairLine(ps) {
   if (!ps) return '';
   return ps.ok ? `<div class="small pairl ${ps.used ? 'warn' : 'mute'}">⚔ Successful hits vs this player: ${ps.used}/${ps.max} in 24h · ${ps.left} left</div>` : `<div class="small pairl bad">⛔ Limit reached (${ps.used}/${ps.max} successful hits in 24h), available again in ${S.E.fmtDur(Math.ceil(ps.nextIn))}</div>`;
 }
+const mateLine = t => `<div class="mate-why">🛡 <b>Guild member</b> · you can't attack, spy on or hex your own covenant-mates</div>`;
+const mateBtns = (cls = 'sm', mail) => `<div class="act mate-act"><button class="${cls}" style="flex:1" disabled>Attack</button><button class="alt ${cls}" style="flex:1" disabled>Spy</button><button class="arc ${cls}" disabled>Hex</button>${mail ? `<button class="alt ${cls}" data-mail="${mail}" aria-label="Raven">✉</button>` : ''}</div>`;
 function realmItem(x, me) {
-  const oor = x.id !== me.id && x.inRange === false, tk = S.E.W.kingdoms[x.id], ps = !oor && tk && x.id !== me.id ? S.E.pairState(me, tk) : null;
-  return `<div class="item ${x.id === me.id ? 'you' : ''} ${oor ? 'oor' : ''}"><div class="h">${x.rank ? `<span class="mute small">#${x.rank}</span>` : ''}<span class="dot ${x.online ? 'on' : ''}"></span>${av(S.E.W.kingdoms[x.id], 'sm')} ${nameLink(x.id, x.ruler)}${x.guild ? `<span class="tag">${esc(x.guild.tag)}</span>` : ''}${x.protected ? '<span class="tag ward">Ward</span>' : ''}<span class="spacer"></span><span class="goldc small">${short(x.might)}</span></div>
+  const tk = S.E.W.kingdoms[x.id], mate = S.E.isMate(me, tk), oor = !mate && x.id !== me.id && x.inRange === false, ps = !oor && !mate && tk && x.id !== me.id ? S.E.pairState(me, tk) : null;
+  return `<div class="item ${x.id === me.id ? 'you' : ''} ${oor ? 'oor' : ''} ${mate ? 'mate' : ''}"><div class="h">${x.rank ? `<span class="mute small">#${x.rank}</span>` : ''}<span class="dot ${x.online ? 'on' : ''}"></span>${av(S.E.W.kingdoms[x.id], 'sm')} ${nameLink(x.id, x.ruler)}${x.guild ? `<span class="tag">${esc(x.guild.tag)}</span>` : ''}${x.protected ? '<span class="tag ward">Ward</span>' : ''}<span class="spacer"></span><span class="goldc small">${short(x.might)}</span></div>
     <div class="d"><span class="realm">${esc(x.name)}</span> · ${esc(D.RACES[x.race].name)} ${esc(D.CLASSES[x.cls].name)} · Lv ${x.level} · ${n(x.land)} acres</div>
-    ${x.id === me.id ? '<span class="mute small">Your realm</span>' : oor ? `<div class="oor-why">🔒 ${oorWhy(x, me)}</div><div class="act"><button class="sm" style="flex:1" disabled>Attack</button><button class="alt sm" style="flex:1" disabled>Spy</button><button class="arc sm" disabled>Hex</button><button class="alt sm" data-mail="${x.id}" aria-label="Raven">✉</button></div>` : `${pairLine(ps)}<div class="act"><button class="sm" style="flex:1" ${ps && !ps.ok ? 'disabled' : `data-atk="${x.id}"`}>Attack</button><button class="alt sm" style="flex:1" data-spy="${x.id}">Spy</button><button class="arc sm" data-hex="${x.id}">Hex</button><button class="alt sm" data-mail="${x.id}" aria-label="Raven">✉</button></div>`}</div>`;
+    ${x.id === me.id ? '<span class="mute small">Your realm</span>' : mate ? mateLine(tk) + mateBtns('sm', x.id) : oor ? `<div class="oor-why">🔒 ${oorWhy(x, me)}</div><div class="act"><button class="sm" style="flex:1" disabled>Attack</button><button class="alt sm" style="flex:1" disabled>Spy</button><button class="arc sm" disabled>Hex</button><button class="alt sm" data-mail="${x.id}" aria-label="Raven">✉</button></div>` : `${pairLine(ps)}<div class="act"><button class="sm" style="flex:1" ${ps && !ps.ok ? 'disabled' : `data-atk="${x.id}"`}>Attack</button><button class="alt sm" style="flex:1" data-spy="${x.id}">Spy</button><button class="arc sm" data-hex="${x.id}">Hex</button><button class="alt sm" data-mail="${x.id}" aria-label="Raven">✉</button></div>`}</div>`;
 }
 function vWar(el) {
   const E = S.E, st = E.myState(), k = st.k;
@@ -6950,7 +7214,7 @@ function defItem(r, me) {
     : (r.win ? `<b class="bad">Hexed</b> with ${esc(r.spell)}` : `<b class="good">Resisted</b> ${esc(r.spell)}`);
   return `<div class="item defl ${held ? 'held' : 'broke'}" data-def="${r.id}"><div class="h"><span>${r.kind === 'attack' ? '⚔' : r.kind === 'spy' ? '👁' : '✶'}</span>${a ? nameLink(a.id, a.name) : esc(r.attackerName)}${r.attLevel ? `<span class="mute small">&nbsp;Lv ${r.attLevel}</span>` : ''}<span class="spacer"></span><span class="mute small" title="${esc(new Date(r.time).toLocaleString())}">${hm(r.time)} · ${ago(r.time)} ago</span></div>
     <div class="d">${what}${r.kind === 'attack' ? ` · ${short(r.offense)} vs your ${short(r.defense)}` : r.kind === 'spy' && r.chance != null ? ` · ${r.chance}% odds` : ''}</div>
-    <div class="act"><button class="gold sm" style="flex:1.4" data-rr="${r.id}">🐦 Show raven report</button>${a ? `<button class="sm" style="flex:1" ${E.pairOk(me, a) ? `data-atk="${a.id}"` : `disabled title="${esc(E.pairLimitMsg(me, a))}"`}>${E.pairOk(me, a) ? 'Strike back' : '⛔ Limit'}</button><button class="alt sm" data-spy="${a.id}">Spy</button>` : ''}</div></div>`;
+    <div class="act"><button class="gold sm" style="flex:1.4" data-rr="${r.id}">🐦 Show raven report</button>${a && E.isMate(me, a) ? '<span class="small mate-tag">🛡 Guild member</span>' : a ? `<button class="sm" style="flex:1" ${E.pairOk(me, a) ? `data-atk="${a.id}"` : `disabled title="${esc(E.pairLimitMsg(me, a))}"`}>${E.pairOk(me, a) ? 'Strike back' : '⛔ Limit'}</button><button class="alt sm" data-spy="${a.id}">Spy</button>` : ''}</div></div>`;
 }
 function bindWarButtons(root) {
   const E = S.E, k = E.player();
@@ -6973,11 +7237,11 @@ function profile(id) {
   sheet(`<div class="prof"><div class="realm-head"><img class="pav ${t.cls ? 'cl-' + t.cls : ''}${t.avatar ? '' : ' rav'}" src="${avatarUrl(t)}"${avVar(t)} alt=""><div style="min-width:0"><h2>${esc(t.ruler)}</h2>
     <div class="small"><span class="realm">${esc(t.name)}</span> <span class="mute">@${esc(t.handle || '')}</span></div>
     <div class="small mute"><span class="dot ${x.online ? 'on' : ''}"></span>${x.online ? 'Online now' : 'Offline'} · Rank #${rank} · Lv ${x.level}</div>${x.title || x.patron ? `<div class="small">${x.title ? `<span class="tag ttl">${esc(x.title)}</span>` : ''}${x.patron ? '<span class="tag patron">🍺 Generous Patron</span>' : ''}</div>` : ''}</div></div>
-    <div class="stats" style="margin:.6rem 0"><div class="stat"><div class="k">PRESTIGE</div><div class="v">${short(x.might)}</div></div><div class="stat"><div class="k">LAND</div><div class="v">${n(x.land)}</div></div><div class="stat"><div class="k">RENOWN</div><div class="v">${short(x.renown)}</div></div></div>
+    <div class="stats" style="margin:.6rem 0"><div class="stat"><div class="k">MIGHT</div><div class="v">${short(x.might)}</div></div><div class="stat"><div class="k">LAND</div><div class="v">${n(x.land)}</div></div><div class="stat"><div class="k">RENOWN</div><div class="v">${short(x.renown)}</div></div></div>
     ${x.bio ? `<p class="bio">“${esc(x.bio)}”</p>` : ''}
     ${(() => { const i = E.intelOn(me, t); return i ? `<p class="small intel">👁 Your intel (${ago(E.tickTime(i.t))} old): defense ${short(i.def || 0)}${i.gold != null ? `, ${short(i.gold)} gold` : ''}${i.off != null ? `, offense ${short(i.off)}` : ''}. Intel goes stale after ${CFG.INTEL_STALE / 60} h.</p>` : '<p class="small mute">👁 No fresh intel. Spy to learn their defense.</p>'; })()}
-    <p class="small">${esc(D.RACES[t.race].name)} ${D.CLASSES[t.cls].icon} ${esc(D.CLASSES[t.cls].name)}${tg ? ` · Covenant: <a href="#" data-gv="${tg.id}">${esc(tg.name)} [${esc(tg.tag)}]</a> ${rankBadge(E.rankIn(tg, t.id))} ${tierBadge(tg)}` : ' · No covenant'}${t.isBot ? ` · 🏵 ${E.botAchCount(t)} achievement tiers` : ''}</p>
-    ${E.inRange(me, t) ? `${pairLine(E.pairState(me, t))}<div class="row"><button ${E.pairOk(me, t) ? `data-atk="${t.id}"` : 'disabled'}>Attack</button><button class="alt" data-spy="${t.id}">Spy</button><button class="arc" data-hex="${t.id}">Hex</button></div>` : `<div class="oor-why">🔒 ${oorWhy({ level: E.level(t) }, me)}</div><div class="row oor"><button disabled>Attack</button><button class="alt" disabled>Spy</button><button class="arc" disabled>Hex</button></div>`}
+    <p class="small">${esc(D.RACES[t.race].name)} ${D.CLASSES[t.cls].icon} ${esc(D.CLASSES[t.cls].name)}${tg ? ` · Covenant: <a href="#" data-gv="${tg.id}" class="gnl">${E.guildBannerSVG(tg.id, { h: 22, cls: 'sm' })}${esc(tg.name)} [${esc(tg.tag)}]</a> ${rankBadge(E.rankIn(tg, t.id))} ${tierBadge(tg)}` : ' · No covenant'}${t.isBot ? ` · 🏵 ${E.botAchCount(t)} achievement tiers` : ''}</p>
+    ${E.isMate(me, t) ? `${mateLine(t)}<div class="row mate-act"><button disabled>Attack</button><button class="alt" disabled>Spy</button><button class="arc" disabled>Hex</button></div>` : E.inRange(me, t) ? `${pairLine(E.pairState(me, t))}<div class="row"><button ${E.pairOk(me, t) ? `data-atk="${t.id}"` : 'disabled'}>Attack</button><button class="alt" data-spy="${t.id}">Spy</button><button class="arc" data-hex="${t.id}">Hex</button></div>` : `<div class="oor-why">🔒 ${oorWhy({ level: E.level(t) }, me)}</div><div class="row oor"><button disabled>Attack</button><button class="alt" disabled>Spy</button><button class="arc" disabled>Hex</button></div>`}
     <div class="row" style="margin-top:.5rem"><button class="alt" data-cmp="${t.id}">⚖ Compare stats</button><button class="alt" data-mail="${t.id}">✉ Send a raven</button><button class="alt" data-ttrade="${t.id}">🤝 Offer trade</button>${canInvite ? `<button class="gold" id="p-inv">⚜ Invite to [${esc(g.tag)}]</button>` : ''}</div></div>`);
   const root = $('#sheet');
   bindWarButtons(root);
@@ -7020,7 +7284,7 @@ function showReport(r) {
   if (r.kind === 'spy' && r.win && mine && r.intel && E.W.kingdoms[r.defenderId]) {
     const ac = E.attackCheck(E.player(), r.defenderId), age = E.W.tick - r.tick;
     body += `<div class="spyact" id="spy-act"><div class="row"><button id="sr-atk" ${ac.ok ? '' : 'disabled'} title="${esc(ac.reason)}">⚔ Attack · ${ac.cost} turns</button><button class="alt" id="sr-cmp">⚖ Compare stats</button></div>
-      ${ac.limit ? '' : pairLine(ac.pair)}${ac.ok ? `<p class="small mute">You have ${n(ac.turns)} turns. ${age >= CFG.INTEL_STALE ? '⚠ This intel is stale; their army may have changed.' : age > 30 ? `Intel is ${tl(age)} old.` : ''}</p>` : `<p class="small bad" id="sr-why">🔒 ${esc(ac.reason)}</p>`}</div>`;
+      ${ac.limit ? '' : pairLine(ac.pair)}${ac.ok ? `<p class="small mute">You have ${n(ac.turns)} turns. ${age >= CFG.INTEL_STALE ? '⚠ This intel is stale; their army may have changed.' : age > 30 ? `Intel is ${tl(age)} old.` : ''}</p>` : `<p class="small bad" id="sr-why">${ac.mate ? '🛡' : '🔒'} ${esc(ac.reason)}</p>`}</div>`;
   }
   body += `<div class="row" style="margin-top:.8rem">${other && other !== me && E.W.kingdoms[other] ? `<button class="alt" data-k="${other}" style="flex:1">View ${esc(mine ? r.defenderName : r.attackerName)}</button>` : ''}<button data-close style="flex:1">Close</button></div></div>`;
   sheet(body); bindNames($('#sheet'));
@@ -7044,7 +7308,7 @@ function compareSheet(id, reportId) {
     ${c.rows.map(x => `<tr data-row="${x.key}"><td>${esc(x.label)}${x.public ? ' <span class="mute">(public)</span>' : ''}</td><td class="${x.known ? (x.cmp > 0 ? 'better' : x.cmp < 0 ? 'worse' : '') : ''}">${f(x, x.me)}</td><td class="${x.known ? (x.cmp < 0 ? 'better' : x.cmp > 0 ? 'worse' : '') : 'unk'}">${f(x, x.them)}</td></tr>`).join('')}</table>
     <div class="winhint ${w ? (w.pct >= 60 ? 'good' : w.pct >= 40 ? 'mid' : 'bad') : ''}" id="winhint">${w ? `<b>⚔ ${esc(w.label)} · about ${w.pct}%</b><div class="small">Your offence ${short(c.rows.find(x => x.key === 'offense').me)} vs their revealed defence ${short(c.rows.find(x => x.key === 'defense').them)} (×${w.ratio}). Both sides roll ±10% in battle.${w.stale ? ' ⚠ Intel is stale, so treat this as a guess.' : ''} Rough hint only: it uses only the intel you have, not their current army.</div>` : '<b>⚔ Win chance: ?</b><div class="small">Their defence is unknown. Spy first for a hint.</div>'}${c.spyOdds != null ? `<div class="small">👁 Spy odds vs their revealed sentry: about ${c.spyOdds}%.</div>` : ''}</div>
     <div class="row" style="margin-top:.7rem"><button id="cmp-atk" ${c.attack.ok ? '' : 'disabled'} title="${esc(c.attack.reason)}">⚔ Attack · ${c.attack.cost} turns</button><button class="alt" data-close>Close</button></div>
-    ${c.attack.limit ? '' : pairLine(c.attack.pair)}${c.attack.ok ? '' : `<p class="small bad">🔒 ${esc(c.attack.reason)}</p>`}`);
+    ${c.attack.limit ? '' : pairLine(c.attack.pair)}${c.attack.ok ? '' : `<p class="small bad">${c.attack.mate ? '🛡' : '🔒'} ${esc(c.attack.reason)}</p>`}`);
   bind('#cmp-atk', () => doAttack(id));
 }
 
@@ -7065,12 +7329,12 @@ function vChronicle(el) {
 // ---------- Rankings ----------
 function vRankings(el) {
   const E = S.E, me = E.player();
-  const tabs = [['might', 'Prestige'], ['level', 'Level'], ['land', 'Land'], ['renown', 'Renown'], ['gate', 'Gate slayers'], ['boss', 'Boss slayers'], ['clans', 'Covenants']];
+  const tabs = [['might', 'Might'], ['level', 'Level'], ['land', 'Land'], ['renown', 'Renown'], ['gate', 'Gate slayers'], ['boss', 'Boss slayers'], ['clans', 'Covenants']];
   if (!tabs.some(t => t[0] === S.rankBy)) S.rankBy = 'might';
   let body;
   if (S.rankBy === 'clans') {
     const gl = E.guildRankings(), mg = me.guildId;
-    body = gl.slice(0, 100).map(g => `<div class="rk ${g.id === mg ? 'you' : ''}" data-gv="${g.id}" role="button"><span class="n">${g.rank <= 3 ? ['🥇', '🥈', '🥉'][g.rank - 1] : g.rank}</span><span class="nm"><b class="goldc">${esc(g.name)}</b> <span class="tag">${esc(g.tag)}</span> ${tierBadge(E.W.guilds[g.id])}<div>${g.size} members · Lv ${E.glvl(E.W.guilds[g.id])} · ${g.policy}</div></span><span class="v">${short(g.might)}</span></div>`).join('');
+    body = gl.slice(0, 100).map(g => `<div class="rk ${g.id === mg ? 'you' : ''}" data-gv="${g.id}" role="button"><span class="n">${g.rank <= 3 ? ['🥇', '🥈', '🥉'][g.rank - 1] : g.rank}</span><span class="nm">${E.guildBannerSVG(g.id, { h: 26, cls: 'sm' })}<b class="goldc">${esc(g.name)}</b> <span class="tag">${esc(g.tag)}</span> ${tierBadge(E.W.guilds[g.id])}<div>${g.size} members · Lv ${E.glvl(E.W.guilds[g.id])} · ${g.policy}</div></span><span class="v">${short(g.might)}</span></div>`).join('');
   } else {
     const list = E.rankings(S.rankBy), myI = list.findIndex(x => x.id === me.id);
     const rows = list.slice(0, 100); let tail = '';
@@ -7139,7 +7403,7 @@ function vTavern(el) {
   el.innerHTML = `<div class="chatwrap tavern-bg" style="--tav:url('${img('tavern.webp')}')">
     <div class="tabs" style="margin:0"><button data-ch="global" class="${S.chatCh === 'global' ? 'on' : ''}">🍺 Tavern${S.unread.global ? ` <span class="badge">${S.unread.global}</span>` : ''}</button><button data-ch="recruit" class="${S.chatCh === 'recruit' ? 'on' : ''}">📯 Recruitment${S.unread.recruit ? ` <span class="badge">${S.unread.recruit}</span>` : ''}</button>${g ? `<button data-ch="guild:${g.id}" class="${S.chatCh.startsWith('guild:') ? 'on' : ''}">⚜ ${esc(g.tag)}${S.unread.guild ? ` <span class="badge">${S.unread.guild}</span>` : ''}</button>` : `<button data-goto="covenant">⚜ Clan</button>`}</div>
     <div class="tavbar"><span class="small"><span class="dot on"></span><span id="online-n">${E.onlineBots().length}</span> rulers online</span><span class="spacer"></span>${S.chatCh === 'global' ? `<button class="gold sm" id="ale" ${al.ok ? '' : 'disabled'} title="${al.cooldown ? `Ready in ${al.cooldown} min` : al.today >= al.max ? 'No more rounds today' : ''}">🍺 Buy a round · ${n(al.cost)}g</button>` : ''}${S.chatCh.startsWith('guild:') && g ? (() => { const gr = E.guildRoundState(me); return `<button class="gold sm" id="gale" ${gr.ok ? '' : 'disabled'} title="${gr.active ? 'A round is already flowing' : gr.cooldown ? `Again in ${tl(gr.cooldown)}` : '+10% event score for all members, 3 h'}">🍻 Buy a round · ${n(gr.cost)}g</button>`; })() : ''}</div>
-    ${S.chatCh.startsWith('guild:') && g ? (() => { const gr = E.guildRoundState(me); return `<div class="gbanner small">${tierBadge(g)} <b>${esc(g.name)}</b> · Lv ${E.glvl(g)} · ${rankBadge(E.rankIn(g, me.id))}${gr.active ? ` · <span class="good">🍻 Round flowing: +10% event score, <span data-cdend="${E.tickTime(g.round.until)}">${tl(gr.left)}</span></span>` : ''}</div>`; })() : ''}
+    ${S.chatCh.startsWith('guild:') && g ? (() => { const gr = E.guildRoundState(me); return `<div class="gbanner small">${E.guildBannerSVG(g.id, { h: 28, cls: 'sm' })}${tierBadge(g)} <b>${esc(g.name)}</b> · Lv ${E.glvl(g)} · ${rankBadge(E.rankIn(g, me.id))}${gr.active ? ` · <span class="good">🍻 Round flowing: +10% event score, <span data-cdend="${E.tickTime(g.round.until)}">${tl(gr.left)}</span></span>` : ''}</div>`; })() : ''}
     ${S.chatCh === 'global' && (al.cooldown || al.today >= al.max || al.patron) ? `<div class="small mute aleinfo">${al.patron ? `🍺 You are a Generous Patron for ${tl(al.patronLeft)}. ` : ''}${al.today >= al.max ? `${al.max} rounds poured today.` : al.cooldown ? `Next round in ${al.cooldown} min (${al.today}/${al.max} today).` : ''}</div>` : ''}
     ${S.chatCh.startsWith('guild:') && g && g.motd && E.glvl(g) >= 3 ? `<div class="small motto">📌 ${esc(g.motd)}</div>` : ''}
     <div class="chat" id="chat">${msgs.length ? msgs.map(m => msgHtml(m, me)).join('') : '<p class="mute small">Quiet so far…</p>'}</div>
@@ -7163,7 +7427,7 @@ function onChat(m) {
   const E = S.E, me = E.player(), g = E.myGuild();
   if (m.channel.startsWith('guild:') && (!g || m.channel !== 'guild:' + g.id)) return;
   const box = $('#chat');
-  if (S.view === 'tavern' && S.chatCh === m.channel && box && !document.hidden) {
+  if ((S.view === 'tavern' || (S.view === 'covenant' && S.covTab === 'chat')) && S.chatCh === m.channel && box && !document.hidden) {
     const near = box.scrollHeight - box.scrollTop - box.clientHeight < 120;
     box.insertAdjacentHTML('beforeend', msgHtml(m, me));
     while (box.children.length > 140) box.firstElementChild.remove();
@@ -7303,9 +7567,9 @@ function guildSheet(gid) {
   const E = S.E, gv = E.guildView(gid), me = E.player(); if (!gv) return;
   const leader = E.W.kingdoms[gv.leader], mine = me.guildId === gid, applied = gv.apps.some(a => a.id === me.id), invited = gv.invites.includes(me.id);
   const G = E.W.guilds[gid];
-  sheet(`<h2>${esc(gv.name)} <span class="tag">${esc(gv.tag)}</span> ${tierBadge(G)}</h2>
+  sheet(`<div class="ghead gsheet-h"><div class="ghead-b">${E.guildBannerSVG(gid, { h: 84 })}</div><div class="ghead-i"><h2 class="gname">${esc(gv.name)} <span class="tag">${esc(gv.tag)}</span></h2><div class="ghead-row small">${tierBadge(G)}<span class="lvb">Lv ${E.glvl(G)}</span><span>${gv.members.length}/${gv.cap} members</span></div></div></div>
     <p class="small">${esc(gv.desc || 'No description.')}</p>
-    <div class="kv small"><span>Leader</span><span>${nameLink(leader.id, leader.ruler)} <span class="realm">· ${esc(leader.name)}</span></span><span>Level · tier</span><span>Lv ${E.glvl(G)} · ${E.guildTier(G).name} (${n(E.guildScore(G))})</span><span>Members</span><span>${gv.members.length} / ${gv.cap}</span><span>Combined prestige</span><span class="goldc">${n(gv.might)}</span><span>Defense bonus</span><span>+${Math.round(gv.defBonus * 100)}%</span><span>Policy</span><span>${POL[gv.policy]}</span>${gv.minMight ? `<span>Minimum might</span><span>${n(gv.minMight)}</span>` : ''}</div>
+    <div class="kv small"><span>Leader</span><span>${nameLink(leader.id, leader.ruler)} <span class="realm">· ${esc(leader.name)}</span></span><span>Level · tier</span><span>Lv ${E.glvl(G)} · ${E.guildTier(G).name} (${n(E.guildScore(G))})</span><span>Members</span><span>${gv.members.length} / ${gv.cap}</span><span>Combined might</span><span class="goldc">${n(gv.might)}</span><span>Defense bonus</span><span>+${Math.round(gv.defBonus * 100)}%</span><span>Policy</span><span>${POL[gv.policy]}</span>${gv.minMight ? `<span>Minimum might</span><span>${n(gv.minMight)}</span>` : ''}</div>
     ${mine ? '<p class="good small">You are sworn to this covenant.</p>' : invited ? `<button class="gold wide" id="gs-acc">Accept invitation</button>` : applied ? `<button class="alt wide" id="gs-cancel">Withdraw application</button>` : me.guildId ? '<p class="mute small">Leave your covenant to join another.</p>' : gv.policy === 'invite' ? `<button class="alt wide" data-mail="${leader.id}">✉ Ask ${esc(leader.ruler)} for an invite</button>` : `<button class="gold wide" id="gs-apply">${gv.policy === 'open' ? 'Join now' : 'Apply to join'}</button>`}
     <h3 style="margin-top:.8rem">Roster <span class="small mute">(${G.members.length} · ${E.rosterView(G).filter(m => m.online).length} online)</span></h3>${rosterRows(E.rosterView(G), m => `<div class="rk mem ${m.id === me.id ? 'you' : ''}"><span class="nm">${av(E.W.kingdoms[m.id], 'rk')}<span class="dot ${m.online ? 'on' : ''}"></span>${nameLink(m.id, m.ruler)} <span class="realm">· ${esc(m.name)}</span><div>${rankBadge(m.rank)} · Lv ${m.level}</div></span><span class="v">${short(m.might)}</span></div>`)}`);
   const root = $('#sheet'); bindNames(root);
@@ -7319,18 +7583,18 @@ function vCovenant(el) {
   if (g) return vMyCovenant(el, g);
   const inv = E.invitesFor(me), apps = Object.values(E.W.guilds).filter(x => x.apps.some(a => a.id === me.id));
   let list = E.guildRankings();
-  const q = S.covQ.trim().toLowerCase(), pm = E.prestige(me);
+  const q = S.covQ.trim().toLowerCase(), pm = E.might(me);
   if (q) list = list.filter(x => x.name.toLowerCase().includes(q) || x.tag.toLowerCase().includes(q));
   if (S.covF === 'open') list = list.filter(x => x.policy !== 'invite' && x.size < x.cap);
   if (S.covF === 'fit') list = list.filter(x => x.policy !== 'invite' && x.size < x.cap && x.minMight <= pm);
-  el.innerHTML = `${inv.length ? `<div class="panel"><h2>📜 Invitations</h2>${inv.map(x => `<div class="item"><div class="h"><b class="goldc">${esc(x.name)}</b><span class="tag">${esc(x.tag)}</span><span class="spacer"></span><span class="small">${x.members.length} members</span></div><div class="act"><button class="gold sm" style="flex:1" data-acc="${x.id}">Accept</button><button class="alt sm" style="flex:1" data-dec="${x.id}">Decline</button><button class="alt sm" data-gv="${x.id}">View</button></div></div>`).join('')}</div>` : ''}
+  el.innerHTML = `${inv.length ? `<div class="panel"><h2>📜 Invitations</h2>${inv.map(x => `<div class="item"><div class="h">${E.guildBannerSVG(x.id, { h: 30, cls: 'sm' })}<b class="goldc">${esc(x.name)}</b><span class="tag">${esc(x.tag)}</span><span class="spacer"></span><span class="small">${x.members.length} members</span></div><div class="act"><button class="gold sm" style="flex:1" data-acc="${x.id}">Accept</button><button class="alt sm" style="flex:1" data-dec="${x.id}">Decline</button><button class="alt sm" data-gv="${x.id}">View</button></div></div>`).join('')}</div>` : ''}
   ${apps.length ? `<div class="panel"><h3>Your applications</h3>${apps.map(x => `<div class="item"><div class="h"><b>${esc(x.name)}</b><span class="tag">${esc(x.tag)}</span><span class="spacer"></span><button class="alt sm" data-cancel="${x.id}">Withdraw</button></div><div class="d">Waiting for ${esc(E.W.kingdoms[x.leader].ruler)} to answer.</div></div>`).join('')}</div>` : ''}
   ${gevPanel(me)}
   <div class="panel"><h2>⚜ Covenants</h2><p class="mute small">Covenants grant +1% defense per member (max +10%) and members cannot attack each other. Covenants hold 50 members at level 1 and +5 per level, up to 100. They level up (1-20) from covenant events for more members, income and defense. ${Object.keys(E.W.guilds).length} covenants in the province.</p>
     <div class="tabs"><button data-cf="all" class="${S.covF === 'all' ? 'on' : ''}">All</button><button data-cf="open" class="${S.covF === 'open' ? 'on' : ''}">Recruiting</button><button data-cf="fit" class="${S.covF === 'fit' ? 'on' : ''}">I qualify</button><button id="found-btn" class="gold">+ Found</button></div>
     <form id="covq" class="chatform" style="margin-bottom:.5rem"><input id="covq-in" type="search" placeholder="Search covenants" value="${esc(S.covQ)}" enterkeyhint="search"><button>Find</button></form>
-    <div class="list">${list.slice(0, 80).map(x => `<div class="item"><div class="h"><span class="mute small">#${x.rank}</span><b class="goldc" data-gv="${x.id}" role="button">${esc(x.name)}</b><span class="tag">${esc(x.tag)}</span><span class="lvb">Lv ${x.lvl}</span><span class="spacer"></span><span class="small">${short(x.might)}</span></div>
-      <div class="d">${x.size}/${x.cap} · ${POL[x.policy]}${x.minMight ? ` · min ${short(x.minMight)} prestige` : ''}<br>${esc(x.desc || '')}</div>
+    <div class="list">${list.slice(0, 80).map(x => `<div class="item gitem"><div class="h"><span class="gsrch-b" data-gv="${x.id}" role="button">${E.guildBannerSVG(x.id, { h: 36, cls: 'sm' })}</span><span class="mute small">#${x.rank}</span><b class="goldc" data-gv="${x.id}" role="button">${esc(x.name)}</b><span class="tag">${esc(x.tag)}</span><span class="lvb">Lv ${x.lvl}</span><span class="spacer"></span><span class="small">${short(x.might)}</span></div>
+      <div class="d">${x.size}/${x.cap} · ${POL[x.policy]}${x.minMight ? ` · min ${short(x.minMight)} might` : ''}<br>${esc(x.desc || '')}</div>
       <div class="act"><button class="alt sm" style="flex:1" data-gv="${x.id}">View</button>${x.policy === 'invite' ? `<button class="alt sm" style="flex:1" data-mail="${x.leader}">✉ Ask leader</button>` : `<button class="sm" style="flex:1" data-apply="${x.id}" ${x.size >= x.cap ? 'disabled' : ''}>${x.policy === 'open' ? 'Join' : 'Apply'}</button>`}</div></div>`).join('') || '<p class="mute">No covenants match.</p>'}</div></div>`;
   bind('[data-acc]', b => act(() => E.acceptInvite(me, b.dataset.acc)));
   bind('[data-dec]', b => act(() => E.declineInvite(me, b.dataset.dec)));
@@ -7408,57 +7672,164 @@ function permPanel(g) {
     <table class="ptab small"><tr><th></th>${R.map(r => `<th>${E.RANK_INFO[r].icon || '•'} ${E.RANK_INFO[r].name}</th>`).join('')}</tr>
     ${E.PERMS.map(p => `<tr><td>${esc(E.PERM_NAMES[p])}</td>${R.map(r => `<td><input type="checkbox" data-perm="${r}:${p}" ${g.perms[r][p] ? 'checked' : ''} aria-label="${E.RANK_INFO[r].name}: ${esc(E.PERM_NAMES[p])}"></td>`).join('')}</tr>`).join('')}</table></div>`;
 }
+// ---------- v3.4 covenant tab: header + sub-tabs (Overview, Events, Members, Chat, Settings) ----------
+const GTABS = [['overview', '⚜', 'Overview'], ['events', '🏆', 'Events'], ['members', '👥', 'Members'], ['chat', '💬', 'Chat'], ['settings', '⚙', 'Settings']];
+function covHeader(g, gv, me) {
+  const E = S.E, L = E.guildLevelView(g), rk = E.guildRankings().find(x => x.id === g.id);
+  return `<div class="panel ghead" id="ghead"><div class="ghead-b">${E.guildBannerSVG(g.id, { h: 104, cls: 'big' })}</div><div class="ghead-i">
+    <h2 class="gname">${esc(gv.name)} <span class="tag">${esc(gv.tag)}</span></h2>
+    <div class="ghead-row small">${tierBadge(g)}<span class="lvb">Lv ${L.lvl}</span><span><b>${gv.members.length}</b>/${gv.cap} members</span><span class="mute">#${rk ? rk.rank : '?'} of ${Object.keys(E.W.guilds).length}</span></div>
+    <div class="gxp"><div class="gbar" role="progressbar" aria-label="Covenant XP" aria-valuenow="${L.pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${L.pct}%"></i></div><span class="small mute">${L.lvl >= L.max ? 'Max level' : `${n(L.gxp - L.from)} / ${n(L.to - L.from)} XP to Lv ${L.lvl + 1}`}</span></div>
+    <div class="small">You: ${rankBadge(E.rankIn(g, me.id))}</div></div></div>`;
+}
 function vMyCovenant(el, g) {
   const E = S.E, me = E.player(); E.ensureRanks(g);
   const gv = E.guildView(g.id), lead = gv.leader === me.id, myR = E.rankIn(g, me.id), RI = E.RANKS.indexOf.bind(E.RANKS);
   const can = Object.fromEntries(E.PERMS.map(p => [p, E.guildCan(me, p)]));
-  const roster = E.rosterView(g), manage = m => m.id !== me.id && (lead || (myR === 'officer' && RI(m.rank) > RI('officer')) || (can.kick && RI(m.rank) > RI(myR)));
-  const inviteable = can.invite ? E.realmsNear(me, 40, true).filter(x => x.isBot && !x.guild && !g.invites.includes(x.id)).sort((a, b) => b.online - a.online).slice(0, 12) : [];
-  el.innerHTML = `<div class="panel"><h2>⚜ ${esc(gv.name)} <span class="tag">${esc(gv.tag)}</span> ${tierBadge(g)}</h2><p class="small">${esc(gv.desc || '')}</p>
-    <div class="stats"><div class="stat"><div class="k">MEMBERS</div><div class="v">${gv.members.length}/${gv.cap}</div></div><div class="stat"><div class="k">PRESTIGE</div><div class="v">${short(gv.might)}</div></div><div class="stat"><div class="k">DEF BONUS</div><div class="v">+${Math.round(gv.defBonus * 100)}%</div></div></div>
-    <p class="small mute">Rank #${E.guildRankings().find(x => x.id === g.id).rank} of ${Object.keys(E.W.guilds).length} · ${POL[gv.policy]} · Your rank: ${rankBadge(myR)}</p>
-    <div class="row"><button class="gold" data-chat>⚜ Clan chat</button><button class="alt" id="leave">Leave</button></div></div>
-  ${roundPanel(me, g, can)}${tierPanel(g)}${glvlPanel(g, can.motto)}${gevPanel(me)}
-  ${can.accept && gv.apps.length ? `<div class="panel"><h2>Applications (${gv.apps.length})</h2>${gv.apps.map(a => `<div class="item"><div class="h"><span class="dot ${a.k.online ? 'on' : ''}"></span>${av(E.W.kingdoms[a.id], 'sm')} ${nameLink(a.k.id, a.k.ruler)} <span class="realm">· ${esc(a.k.name)}</span><span class="spacer"></span><span class="small goldc">${short(a.k.might)}</span></div><div class="d">Lv ${a.k.level}${a.note ? ' · "' + esc(a.note) + '"' : ''}</div><div class="act"><button class="gold sm" style="flex:1" data-ok="${a.id}">Accept</button><button class="alt sm" style="flex:1" data-no="${a.id}">Decline</button></div></div>`).join('')}</div>` : ''}
-  <div class="panel" id="roster"><h2>Roster <span class="small mute">${roster.length}/${gv.cap} · ${roster.filter(m => m.online).length} online</span><span class="spacer"></span><span class="small mute">${roster.filter(m => m.rank === 'officer').length} officers · ${roster.filter(m => m.rank === 'elder').length} elders · ${roster.filter(m => m.rank === 'recruit').length} recruits</span></h2>${rosterRows(roster, m => `<div class="rk mem ${m.id === me.id ? 'you' : ''}"><span class="nm">${av(E.W.kingdoms[m.id], 'rk')}<span class="dot ${m.online ? 'on' : ''}"></span>${nameLink(m.id, m.ruler)} <span class="realm">· ${esc(m.name)}</span>${m.title ? ` <span class="ttl sm">${esc(m.title)}</span>` : ''}<div>${rankBadge(m.rank)} · Lv ${m.level}</div></span><span class="v">${short(m.might)}${manage(m) ? `<br><button class="alt sm" data-mem="${m.id}" aria-label="Manage ${esc(m.ruler)}">⋯</button>` : ''}</span></div>`)}</div>
-  ${lead ? permPanel(g) : ''}
-  ${can.invite ? `<div class="panel"><h2>Invite realms</h2><p class="mute small">Unsworn realms near your rank (online first). Bots answer by raven. You can also invite anyone from their profile.</p>${g.invites.length ? `<p class="small">Pending invitations: ${g.invites.map(id => E.W.kingdoms[id] ? esc(E.W.kingdoms[id].ruler) : '').join(', ')}</p>` : ''}
-    ${inviteable.map(x => `<div class="rk"><span class="n">#${x.rank}</span><span class="nm"><span class="dot ${x.online ? 'on' : ''}"></span>${nameLink(x.id, x.ruler)} <span class="realm">· ${esc(x.name)}</span><div>Lv ${x.level}</div></span><span class="v"><button class="sm" data-inv="${x.id}">Invite</button></span></div>`).join('') || '<p class="mute small">No unsworn realms near you right now.</p>'}</div>` : ''}
-  ${lead ? `<div class="panel"><h2>Settings</h2><label for="gs-pol">Who may join?</label><select id="gs-pol">${Object.entries(POL).map(([k, v]) => `<option value="${k}" ${gv.policy === k ? 'selected' : ''}>${v}</option>`).join('')}</select>
-    <label for="gs-min">Minimum prestige to apply</label><input id="gs-min" type="number" inputmode="numeric" value="${gv.minMight || 0}">
+  if (!GTABS.some(t => t[0] === S.covTab)) S.covTab = 'overview';
+  const tab = S.covTab, gch = 'guild:' + g.id, unread = S.unread.guild || 0, ev = E.gevView();
+  const badge = { members: can.accept && gv.apps.length ? gv.apps.length : 0, chat: tab === 'chat' ? 0 : unread, events: ev.live ? '●' : 0 };
+  const nav = `<nav class="gtabs" id="gtabs" role="tablist" aria-label="Covenant sections">${GTABS.map(([k, ic, lb]) => `<button role="tab" data-gt="${k}" aria-selected="${tab === k}" class="${tab === k ? 'on' : ''}"><span class="gi">${ic}</span><span class="gl">${lb}</span>${badge[k] ? `<span class="badge">${badge[k]}</span>` : ''}</button>`).join('')}</nav>`;
+  let body = '';
+  if (tab === 'overview') {
+    const online = E.rosterView(g).filter(m => m.online).length;
+    body = `<div class="panel" id="gov"><div class="stats"><div class="stat"><div class="k">MIGHT</div><div class="v">${short(gv.might)}</div></div><div class="stat"><div class="k">DEF BONUS</div><div class="v">+${Math.round(gv.defBonus * 100)}%</div></div><div class="stat"><div class="k">ONLINE</div><div class="v">${online}</div></div></div>
+      ${gv.desc ? `<p class="small">${esc(gv.desc)}</p>` : ''}${g.motd && E.glvl(g) >= 3 ? `<p class="small motto">📌 ${esc(g.motd)}</p>` : ''}
+      <p class="small mute">${POL[gv.policy]}${gv.minMight ? ` · min ${n(gv.minMight)} might` : ''}</p>
+      ${ev.live ? `<div class="goalbox ${ev.pct >= 1 ? 'done' : ''}"><div class="small">${ev.T.icon} <b>${esc(ev.T.name)}</b> · ${tl(ev.ticksLeft)} left${ev.goalMode ? ` · our goal <b class="${ev.pct >= 1 ? 'good' : 'goldc'}">${Math.round(ev.pct * 100)}%</b>` : ''}</div>${ev.goalMode ? `<div class="gbar"><i style="width:${Math.min(100, Math.round(ev.pct * 100))}%"></i></div>` : ''}<button class="alt sm" data-gt="events" style="margin-top:.4rem">Open event</button></div>` : `<p class="small mute">🏆 Next covenant event in about ${tl(ev.nextIn)}.</p>`}</div>
+      ${roundPanel(me, g, can)}${glvlPanel(g, false)}${tierPanel(g)}`;
+  } else if (tab === 'events') body = gevPanel(me);
+  else if (tab === 'members') {
+    const roster = E.rosterView(g), manage = m => m.id !== me.id && (lead || (myR === 'officer' && RI(m.rank) > RI('officer')) || (can.kick && RI(m.rank) > RI(myR)));
+    const inviteable = can.invite ? E.realmsNear(me, 40, true).filter(x => x.isBot && !x.guild && !g.invites.includes(x.id)).sort((a, b) => b.online - a.online).slice(0, 12) : [];
+    body = `${can.accept && gv.apps.length ? `<div class="panel" id="apps"><h2>Applications (${gv.apps.length})</h2>${gv.apps.map(a => `<div class="item"><div class="h"><span class="dot ${a.k.online ? 'on' : ''}"></span>${av(E.W.kingdoms[a.id], 'sm')} ${nameLink(a.k.id, a.k.ruler)} <span class="realm">· ${esc(a.k.name)}</span><span class="spacer"></span><span class="small goldc">${short(a.k.might)}</span></div><div class="d">Lv ${a.k.level}${a.note ? ' · "' + esc(a.note) + '"' : ''}</div><div class="act"><button class="gold sm" style="flex:1" data-ok="${a.id}">Accept</button><button class="alt sm" style="flex:1" data-no="${a.id}">Decline</button></div></div>`).join('')}</div>` : ''}
+  <div class="panel" id="roster"><h2>Roster <span class="small mute">${roster.length}/${gv.cap} · ${roster.filter(m => m.online).length} online</span></h2><p class="small mute">${roster.filter(m => m.rank === 'officer').length} officers · ${roster.filter(m => m.rank === 'elder').length} elders · ${roster.filter(m => m.rank === 'recruit').length} recruits${lead || can.kick || myR === 'officer' ? ' · tap ⋯ to promote, demote or cast out' : ''}</p>${rosterRows(roster, m => `<div class="rk mem ${m.id === me.id ? 'you' : ''}"><span class="nm">${av(E.W.kingdoms[m.id], 'rk')}<span class="dot ${m.online ? 'on' : ''}"></span>${nameLink(m.id, m.ruler)} <span class="realm">· ${esc(m.name)}</span>${m.title ? ` <span class="ttl sm">${esc(m.title)}</span>` : ''}<div>${rankBadge(m.rank)} · Lv ${m.level}</div></span><span class="v">${short(m.might)}${manage(m) ? `<br><button class="alt sm" data-mem="${m.id}" aria-label="Manage ${esc(m.ruler)}">⋯</button>` : ''}</span></div>`)}</div>
+  ${can.invite ? `<div class="panel" id="invite-panel"><h2>Invite realms</h2><p class="mute small">Unsworn realms near your rank (online first). Bots answer by raven. You can also invite anyone from their profile.</p>${g.invites.length ? `<p class="small">Pending invitations: ${g.invites.map(id => E.W.kingdoms[id] ? esc(E.W.kingdoms[id].ruler) : '').join(', ')}</p>` : ''}
+    ${inviteable.map(x => `<div class="rk"><span class="n">#${x.rank}</span><span class="nm"><span class="dot ${x.online ? 'on' : ''}"></span>${nameLink(x.id, x.ruler)} <span class="realm">· ${esc(x.name)}</span><div>Lv ${x.level}</div></span><span class="v"><button class="sm" data-inv="${x.id}">Invite</button></span></div>`).join('') || '<p class="mute small">No unsworn realms near you right now.</p>'}</div>` : ''}`;
+  } else if (tab === 'chat') {
+    S.chatCh = gch; S.unread.guild = 0; if (S.replyTo && S.replyTo.ch !== gch) S.replyTo = null;
+    const msgs = (E.W.chat[gch] || []).slice(-80), gr = E.guildRoundState(me);
+    body = `<div class="panel gchatp" id="gchat-panel"><div class="gbanner small">${E.guildBannerSVG(g.id, { h: 30, cls: 'sm' })} <b>${esc(g.name)}</b> · <span class="gon" title="Covenant members online now"><span class="dot on"></span><span id="gonline-n">${roster0(g)} of ${g.members.length}</span> online</span>${gr.active ? ` · <span class="good">🍻 Round flowing</span>` : ''}<span class="spacer"></span><button class="alt sm" id="gchat-full">Full screen</button></div>
+      ${g.motd && E.glvl(g) >= 3 ? `<div class="small motto">📌 ${esc(g.motd)}</div>` : ''}
+      <div class="chat gchat" id="chat">${msgs.length ? msgs.map(m => msgHtml(m, me)).join('') : '<p class="mute small">Quiet so far…</p>'}</div>
+      <div class="rpbar" id="rp-bar" hidden></div>
+      <form class="chatform" id="cf"><input id="cf-in" maxlength="300" placeholder="Message your covenant… tap a message to reply" autocomplete="off" enterkeyhint="send"><button>Send</button></form></div>`;
+  } else {
+    body = `${bannerPanel(g, can.banner)}
+    ${can.motto && E.glvl(g) >= 3 ? `<div class="panel" id="motto-panel"><h2>📌 Motto</h2><form id="motto-f" class="chatform"><input id="motto-in" maxlength="120" placeholder="Covenant motto (pinned in clan chat)" value="${esc(g.motd || '')}"><button>Pin</button></form></div>` : ''}
+    ${lead ? `<div class="panel" id="gset-panel"><h2>Joining</h2><label for="gs-pol">Who may join?</label><select id="gs-pol">${Object.entries(POL).map(([k, v]) => `<option value="${k}" ${gv.policy === k ? 'selected' : ''}>${v}</option>`).join('')}</select>
+    <label for="gs-min">Minimum might to apply</label><input id="gs-min" type="number" inputmode="numeric" value="${gv.minMight || 0}">
     <label for="gs-desc">Description</label><textarea id="gs-desc" rows="2" maxlength="200">${esc(gv.desc || '')}</textarea>
-    <button class="wide" id="gs-save" style="margin-top:.6rem">Save settings</button></div>` : ''}`;
-  bind('[data-chat]', () => { S.chatCh = 'guild:' + g.id; go('tavern'); });
-  bindGev(me);
-  const mf = $('#motto-f'); if (mf) mf.onsubmit = ev => { ev.preventDefault(); if (act(() => E.setMotto(me, $('#motto-in').value)) != null) toast('Motto pinned', 'good'); };
-  bind('#leave', async () => { if (await confirmBox(`Leave ${g.name}?${lead && g.members.length > 1 ? ' Leadership passes to your mightiest member.' : g.members.length === 1 ? ' The covenant will disband.' : ''}`, 'Leave', true)) act(() => E.leaveGuild(me)); });
-  bind('#g-round', () => { const r = act(() => E.buyGuildRound(me)); if (r) { mugToast(); SFX('clink', 'success'); } });
-  bind('#g-rally', () => { if (act(() => E.rallyGuild(me))) SFX('horn', 'medium'); });
-  bind('[data-ok]', b => act(() => E.answerApplication(me, b.dataset.ok, true)));
-  bind('[data-no]', b => act(() => E.answerApplication(me, b.dataset.no, false)));
-  bind('[data-inv]', b => act(() => E.inviteToGuild(me, b.dataset.inv)));
-  el.querySelectorAll('[data-perm]').forEach(c => c.onchange = () => { const [r, p] = c.dataset.perm.split(':'); act(() => E.setPerm(me, r, p, c.checked), { render: false }); });
-  bind('[data-mem]', b => {
-    const m = E.W.kingdoms[b.dataset.mem], cur = E.rankIn(g, m.id), opts = E.RANKS.filter(r => r !== 'leader' && (lead || RI(r) > RI('officer')));
-    sheet(`<div class="realm-head">${av(m)}<div><h3>${esc(m.ruler)} <span class="realm">· ${esc(m.name)}</span></h3><div class="small">${rankBadge(cur)} · Lv ${E.level(m)}</div></div></div>
-      ${lead || (myR === 'officer' && RI(cur) > RI('officer')) ? `<label>Rank</label><div class="rankpick">${opts.map(r => `<button class="${r === cur ? 'gold' : 'alt'} sm" data-setr="${r}">${E.RANK_INFO[r].icon || '•'} ${E.RANK_INFO[r].name}</button>`).join('')}</div>` : ''}
-      <div class="row" style="margin-top:.6rem">${lead ? '<button class="alt" id="mm-lead">👑 Transfer leadership</button>' : ''}${can.kick && RI(cur) > RI(myR) ? '<button id="mm-kick">Cast out</button>' : ''}</div><button class="alt wide" style="margin-top:.5rem" data-k="${m.id}">View realm</button>`);
-    bindNames($('#sheet'));
-    bind('[data-setr]', x => { closeSheet(); act(() => E.setRank(me, m.id, x.dataset.setr)); }, $('#sheet'));
-    bind('#mm-lead', async () => { closeSheet(); if (await confirmBox(`Hand leadership to ${m.ruler}? You become an Officer.`, 'Hand over')) act(() => E.transferLeader(me, m.id)); });
-    bind('#mm-kick', async () => { closeSheet(); if (await confirmBox(`Cast ${m.ruler} out of the covenant?`, 'Cast out', true)) act(() => E.kickMember(me, m.id)); });
+    <button class="wide" id="gs-save" style="margin-top:.6rem">Save settings</button></div>` : ''}
+    ${lead ? permPanel(g) : ''}
+    <div class="panel danger" id="leave-panel"><h2>Leave covenant</h2><p class="small mute">${lead && g.members.length > 1 ? 'You lead this covenant. You will choose who takes the crown before you go.' : g.members.length === 1 ? 'You are the last member: leaving disbands the covenant.' : 'Your rank and event contribution stay behind. You can apply elsewhere afterwards.'}</p>
+      <button class="alt wide" id="leave-open">Leave ${esc(g.name)}…</button></div>`;
+  }
+  el.innerHTML = covHeader(g, gv, me) + nav + `<div class="gtab-body" id="gtab-${tab}">${body}</div>`;
+  bind('[data-gt]', b => { S.covTab = b.dataset.gt; const y = window.scrollY; renderView(); renderNav(); const hd = $('#ghead'), tp = $('#top'); const stuckAt = hd ? Math.max(0, hd.offsetTop + hd.offsetHeight - (tp ? tp.offsetHeight : 0) - 4) : 0; window.scrollTo(0, Math.min(y, stuckAt)); }, el);
+  if (tab === 'overview') {
+    bind('#g-round', () => { const r = act(() => E.buyGuildRound(me)); if (r) { mugToast(); SFX('clink', 'success'); } });
+    bind('#g-rally', () => { if (act(() => E.rallyGuild(me))) SFX('horn', 'medium'); });
+  }
+  if (tab === 'events') bindGev(me);
+  if (tab === 'members') {
+    bind('[data-ok]', b => act(() => E.answerApplication(me, b.dataset.ok, true)));
+    bind('[data-no]', b => act(() => E.answerApplication(me, b.dataset.no, false)));
+    bind('[data-inv]', b => act(() => E.inviteToGuild(me, b.dataset.inv)));
+    bind('[data-mem]', b => memberSheet(g, E.W.kingdoms[b.dataset.mem], { lead, myR, can }));
+  }
+  if (tab === 'chat') {
+    const box = $('#chat'); box.scrollTop = box.scrollHeight; bindChat(box);
+    if (S.replyTo) setReply(E.findMsg(gch, S.replyTo.id));
+    bind('#gchat-full', () => { S.chatCh = gch; go('tavern'); });
+    $('#cf').onsubmit = e => { e.preventDefault(); const inp = $('#cf-in'), v = inp.value; try { E.chat(me, gch, v, S.replyTo ? S.replyTo.id : null); inp.value = ''; S.dirty = true; setReply(null); SFX('tap'); } catch (er) { toast(er.message, 'err'); } };
+  }
+  if (tab === 'settings') {
+    const mf = $('#motto-f'); if (mf) mf.onsubmit = ev2 => { ev2.preventDefault(); if (act(() => E.setMotto(me, $('#motto-in').value)) != null) toast('Motto pinned', 'good'); };
+    el.querySelectorAll('[data-perm]').forEach(c => c.onchange = () => { const [r, p] = c.dataset.perm.split(':'); act(() => E.setPerm(me, r, p, c.checked), { render: false }); });
+    bind('#gs-save', () => act(() => E.setGuild(me, { policy: $('#gs-pol').value, minMight: $('#gs-min').value, desc: $('#gs-desc').value })));
+    bind('#leave-open', () => leaveSheet(g));
+    if (can.banner) bindBannerEditor(g);
+  }
+}
+function roster0(g) { const E = S.E; return g.members.filter(id => { const k = E.W.kingdoms[id]; return k && (k.isBot ? E.isOnline(k) : true); }).length; }
+function memberSheet(g, m, o) {
+  const E = S.E, me = E.player(), RI = E.RANKS.indexOf.bind(E.RANKS), { lead, myR, can } = o, cur = E.rankIn(g, m.id), opts = E.RANKS.filter(r => r !== 'leader' && (lead || RI(r) > RI('officer')));
+  sheet(`<div class="realm-head">${av(m)}<div><h3>${esc(m.ruler)} <span class="realm">· ${esc(m.name)}</span></h3><div class="small">${rankBadge(cur)} · Lv ${E.level(m)}</div></div></div>
+    ${lead || (myR === 'officer' && RI(cur) > RI('officer')) ? `<label>Rank</label><div class="rankpick">${opts.map(r => `<button class="${r === cur ? 'gold' : 'alt'} sm" data-setr="${r}">${E.RANK_INFO[r].icon || '•'} ${E.RANK_INFO[r].name}</button>`).join('')}</div>` : ''}
+    <div class="row" style="margin-top:.6rem">${lead ? '<button class="alt" id="mm-lead">👑 Transfer leadership</button>' : ''}${can.kick && RI(cur) > RI(myR) ? '<button id="mm-kick">Cast out</button>' : ''}</div><button class="alt wide" style="margin-top:.5rem" data-k="${m.id}">View realm</button>`);
+  bindNames($('#sheet'));
+  bind('[data-setr]', x => { closeSheet(); act(() => E.setRank(me, m.id, x.dataset.setr)); }, $('#sheet'));
+  bind('#mm-lead', async () => { closeSheet(); if (await confirmBox(`Hand leadership to ${m.ruler}? You become an Officer.`, 'Hand over')) act(() => E.transferLeader(me, m.id)); });
+  bind('#mm-kick', async () => { closeSheet(); if (await confirmBox(`Cast ${m.ruler} out of the covenant?`, 'Cast out', true)) act(() => E.kickMember(me, m.id)); });
+}
+// two-step leave: open the sheet from Settings, tick "I understand", then press Leave (leaders pick an heir first)
+function leaveSheet(g) {
+  const E = S.E, me = E.player(), lead = g.leader === me.id, others = E.rosterView(g).filter(m => m.id !== me.id);
+  sheet(`<h2>Leave ${esc(g.name)}?</h2>
+    <p class="small">You lose the covenant's defense, income and level perks, your rank, and any share of the running event. Covenant-mates can attack you again once you are outside.</p>
+    ${lead && others.length ? `<label for="lv-heir">Pass the crown to</label><select id="lv-heir">${others.map((m, i) => `<option value="${m.id}" ${i === 0 ? 'selected' : ''}>${esc(m.ruler)} · ${E.RANK_INFO[m.rank].name} · ${short(m.might)} might</option>`).join('')}</select>` : ''}
+    ${!others.length ? '<p class="small bad">You are the last member: the covenant will disband.</p>' : ''}
+    <label class="chk"><input type="checkbox" id="leave-ok"> I understand, I want to leave ${esc(g.tag)}</label>
+    <div class="row" style="margin-top:.6rem"><button class="alt" data-close style="flex:1">Stay</button><button id="leave-go" style="flex:1" disabled>Leave covenant</button></div>`);
+  const root = $('#sheet'), okc = root.querySelector('#leave-ok'), go2 = root.querySelector('#leave-go');
+  okc.onchange = () => { go2.disabled = !okc.checked; };
+  go2.onclick = ev => { ev.preventDefault(); if (!okc.checked) return; const heir = root.querySelector('#lv-heir'); closeSheet(); S.covTab = 'overview'; act(() => E.leaveGuild(me, heir ? heir.value : null)); };
+}
+// ---------- v3.4 banner editor ----------
+function bannerPanel(g, canEdit) {
+  const E = S.E;
+  if (!canEdit) return `<div class="panel" id="banner-panel"><h2>🏴 Banner</h2><div class="bn-view">${E.guildBannerSVG(g.id, { h: 150 })}<p class="small mute">Only ranks with the "Edit the banner" permission can change the banner.</p></div></div>`;
+  const B = E.BANNER, d = S.bnDraft && S.bnDraft.gid === g.id ? S.bnDraft.b : JSON.parse(JSON.stringify(E.bannerOf(g)));
+  S.bnDraft = { gid: g.id, b: d };
+  const sw = key => `<div class="bn-col"><input type="color" value="${d[key] || '#000000'}" data-bc="${key}" aria-label="Custom colour">${B.SWATCH.map(c => `<button class="sw" style="background:${c}" data-bsw="${key}" data-c="${c}" aria-label="Colour ${c}"></button>`).join('')}</div>`;
+  const lsw = i => `<div class="bn-col"><input type="color" value="${d.layers[i].c}" data-bc="L${i}" aria-label="Layer ${i + 1} colour">${B.SWATCH.map(c => `<button class="sw" style="background:${c}" data-bsw="L${i}" data-c="${c}" aria-label="Colour ${c}"></button>`).join('')}</div>`;
+  const layer = i => i === 0 ? `<div class="bn-layer"><div class="small"><b>Field</b></div>${lsw(0)}</div>`
+    : `<div class="bn-layer"><select data-bp="${i}" aria-label="Layer ${i + 1} pattern"><option value="">${i === 1 ? 'No pattern' : 'No third layer'}</option>${Object.entries(B.PATS).filter(([k]) => k !== 'solid').map(([k, v]) => `<option value="${k}" ${d.layers[i] && d.layers[i].p === k ? 'selected' : ''}>${v.name}</option>`).join('')}</select>${d.layers[i] ? lsw(i) : ''}</div>`;
+  return `<div class="panel" id="banner-panel"><h2>🏴 Banner editor</h2><p class="small mute">Shown on your covenant header, the covenant list and search, members' profiles and covenant chat. Changes preview live; Save raises the banner for everyone.</p>
+  <div class="bn-ed"><div class="bn-prev" id="bn-prev" aria-live="polite">${E.bannerSVG(d, { h: 170, label: 'Banner preview' })}</div>
+  <div class="bn-ctl">
+    <h3>Shape</h3><div class="bn-shapes">${Object.entries(B.SHAPES).map(([k, v]) => `<button class="bn-opt ${d.shape === k ? 'on' : ''}" data-bshape="${k}" title="${v.name}" aria-label="${v.name}"><svg viewBox="0 0 100 140" width="26" height="36"><path d="${v.d}" fill="currentColor"/></svg></button>`).join('')}</div>
+    <h3>Field and patterns</h3>${[0, 1, 2].filter(i => i <= d.layers.length && (i < 2 || d.layers.length >= 2)).map(layer).join('')}
+    <h3>Sigil</h3><div class="bn-ems">${['none'].concat(Object.keys(B.EMBLEMS)).map(k => `<button class="bn-opt ${d.emblem === k ? 'on' : ''}" data-bem="${k}" title="${k === 'none' ? 'No sigil' : B.EMBLEMS[k].name}" aria-label="${k === 'none' ? 'No sigil' : B.EMBLEMS[k].name}">${k === 'none' ? '∅' : `<svg viewBox="0 0 100 100" width="28" height="28" fill="currentColor" color="currentColor">${B.EMBLEMS[k].s}</svg>`}</button>`).join('')}</div>
+    <div class="small"><b>Sigil colour</b></div>${sw('ec')}
+    <h3>Trim</h3><select data-btrim aria-label="Trim style">${Object.entries(B.TRIMS).map(([k, v]) => `<option value="${k}" ${d.trim === k ? 'selected' : ''}>${v}</option>`).join('')}</select>${sw('tc')}
+    <h3>Texture</h3><select data-btex aria-label="Background texture">${Object.entries(B.TEX).map(([k, v]) => `<option value="${k}" ${d.tex === k ? 'selected' : ''}>${v}</option>`).join('')}</select>
+  </div></div>
+  <div class="row" style="margin-top:.7rem"><button class="alt" id="bn-rand">🎲 Random</button><button class="alt" id="bn-reset">↺ Reset</button><button class="gold" id="bn-save" style="flex:1.4">Save banner</button></div></div>`;
+}
+function bindBannerEditor(g) {
+  const E = S.E, me = E.player(), P = () => $('#banner-panel'), d = () => S.bnDraft.b;
+  const prev = () => { $('#bn-prev').innerHTML = E.bannerSVG(d(), { h: 170, label: 'Banner preview' }); };
+  const redraw = () => { const sc = window.scrollY; P().outerHTML = bannerPanel(g, true); bindBannerEditor(g); window.scrollTo(0, sc); };
+  const setCol = (key, c) => { if (key[0] === 'L') d().layers[+key.slice(1)].c = c; else d()[key] = c; prev(); P().querySelectorAll(`[data-bc="${key}"]`).forEach(i => i.value = c); };
+  const root = P();
+  root.querySelectorAll('[data-bshape]').forEach(b => b.onclick = ev => { ev.preventDefault(); d().shape = b.dataset.bshape; root.querySelectorAll('[data-bshape]').forEach(x => x.classList.toggle('on', x === b)); prev(); });
+  root.querySelectorAll('[data-bem]').forEach(b => b.onclick = ev => { ev.preventDefault(); d().emblem = b.dataset.bem; root.querySelectorAll('[data-bem]').forEach(x => x.classList.toggle('on', x === b)); prev(); });
+  root.querySelectorAll('[data-bsw]').forEach(b => b.onclick = ev => { ev.preventDefault(); setCol(b.dataset.bsw, b.dataset.c); });
+  root.querySelectorAll('[data-bc]').forEach(i => i.oninput = () => setCol(i.dataset.bc, i.value));
+  root.querySelectorAll('[data-bp]').forEach(s => s.onchange = () => {
+    const i = +s.dataset.bp, L = d().layers;
+    if (!s.value) L.splice(i); else if (L[i]) L[i].p = s.value; else L[i] = { p: s.value, c: E.BANNER.PALETTE[(i * 7 + 4) % E.BANNER.PALETTE.length] };
+    redraw();
   });
-  bind('#gs-save', () => act(() => E.setGuild(me, { policy: $('#gs-pol').value, minMight: $('#gs-min').value, desc: $('#gs-desc').value })));
+  const tr = root.querySelector('[data-btrim]'); tr.onchange = () => { d().trim = tr.value; prev(); };
+  const tx = root.querySelector('[data-btex]'); tx.onchange = () => { d().tex = tx.value; prev(); };
+  bind('#bn-rand', () => { S.bnDraft.b = E.genBanner(Math.random().toString(36).slice(2)); redraw(); }, root);
+  bind('#bn-reset', () => { S.bnDraft = null; redraw(); }, root);
+  bind('#bn-save', () => { const r = act(() => E.setBanner(me, d()), { render: false }); if (r) { S.bnDraft = null; renderView(); SFX('horn', 'medium'); } }, root);
 }
 
 // ---------- Ravens ----------
 function vRavens(el) {
   const E = S.E, me = E.player(), threads = E.mailFor(me);
-  el.innerHTML = `<div class="panel"><h2>🐦 Ravens <span class="spacer"></span><button class="gold sm" id="new-raven">+ New</button></h2>
+  const unreadAll = E.unreadMailCount(me);
+  el.innerHTML = `<div class="panel"><h2>🐦 Ravens <span class="spacer"></span><button class="alt sm" id="read-all-ravens" ${unreadAll ? '' : 'disabled'} title="Mark every raven as read">✓ Read all${unreadAll ? ` (${unreadAll})` : ''}</button> <button class="gold sm" id="new-raven">+ New</button></h2>
     <p class="mute small">Private letters. Rulers answer when they are next online.</p>
     <div class="list">${threads.length ? threads.map(t => `<div class="item thr ${t.unread ? 'unread' : ''}" data-th="${esc(t.id)}" role="button"><div class="h">${t.unread ? `<span class="badge">${t.unread}</span>` : ''}${(() => { const o = E.W.kingdoms[t.id]; return o ? `${av(o, 'sm')} <b>${esc(o.ruler)}</b> <span class="realm">· ${esc(o.name)}</span>` : `<b>${esc(t.other.name)}</b>`; })()}<span class="spacer"></span><span class="mute small">${ago(t.last.time)}</span></div><div class="d"><b>${esc(t.last.subject)}</b> · ${esc(t.last.body.slice(0, 80))}</div></div>`).join('') : '<p class="mute">No ravens yet.</p>'}</div></div>`;
   bind('[data-th]', b => openThread(b.dataset.th));
   bind('#new-raven', newRaven);
+  bind('#read-all-ravens', () => { const c = E.markAllMailRead(me); S.dirty = true; renderNav(); renderView(); if (c) toast(`${c} raven${c > 1 ? 's' : ''} marked as read.`, 'good'); });
 }
 function newRaven() {
   sheet(`<h2>Send a raven</h2><label for="nr-q">To which realm?</label><form id="nr-f" class="chatform"><input id="nr-q" type="search" placeholder="Realm, ruler or @name" enterkeyhint="search"><button>Find</button></form><div id="nr-r" class="list" style="margin-top:.5rem"></div>`);
@@ -7471,6 +7842,8 @@ function newRaven() {
 function openThread(otherId, subject) {
   const E = S.E, me = E.player(), o = E.W.kingdoms[otherId];
   E.markThreadRead(me, otherId); S.dirty = true; renderNav();
+  // v3.4: clear the unread mark in the list behind the sheet straight away, so backing out shows it read
+  if (S.view === 'ravens') renderView();
   const t = E.mailFor(me).find(x => x.id === otherId), msgs = t ? t.msgs : [];
   const lastSub = t ? t.last.subject : '';
   sheet(`<h2>${o ? av(o) + ' ' + nameLink(o.id, o.ruler) : esc(t ? t.other.name : '?')}</h2>${o ? `<p class="small mute"><span class="dot ${E.isOnline(o) ? 'on' : ''}"></span><span class="realm">${esc(o.name)}</span> · ${E.isOnline(o) ? 'online now' : 'offline'}</p>` : ''}
@@ -7478,6 +7851,7 @@ function openThread(otherId, subject) {
     ${o ? `<input id="rv-sub" maxlength="80" placeholder="Subject" value="${esc(subject || (lastSub ? (/^re:/i.test(lastSub) ? lastSub : 'Re: ' + lastSub) : ''))}">
     <textarea id="rv-body" rows="3" maxlength="2000" placeholder="Write your letter… (e.g. ask for peace, trade or an invite)"></textarea>
     <button class="gold wide" id="rv-send" style="margin-top:.5rem">Send raven</button>` : ''}`);
+  $('#sheet').dataset.thread = otherId;
   const box = $('#th-msgs'); if (box) box.scrollTop = box.scrollHeight;
   bindNames($('#sheet'));
   bind('#rv-send', () => { const r = act(() => E.mail(me, otherId, $('#rv-sub').value, $('#rv-body').value), { quiet: true, render: S.view === 'ravens' }); if (r) { toast('Your raven takes wing.', 'good'); openThread(otherId); } });
@@ -7626,11 +8000,15 @@ function vHelp(el) {
   <p><b class="goldc">Buy a round 🍺.</b> In the Tavern, ${n(CFG.ALE_COST)} gold buys ale for everyone: +3 renown (no XP), the Generous Patron tag for ${CFG.PATRON_TICKS / 60} hours and friendlier rivals. Once every ${CFG.ALE_COOLDOWN / 60} hours, ${CFG.ALE_PER_DAY} a day.</p>
   <p><b class="goldc">Chat.</b> Tap 👍/👎 on any message; rivals remember it. Tap a message (or ↩) to reply: the ruler you reply to always answers, right away if online, within minutes if not.</p>
   <p><b class="goldc">Defence log.</b> War › Defence log lists every attack, spy and curse against you. Tap 🐦 Show raven report for the full battle report: forces sent and lost on both sides, equipment, plunder and time.</p>
-  <p><b class="goldc">Fair rivals.</b> Rival rulers see only your public profile (name, level, race, calling, land, rank, prestige, covenant) and what their own spies brought back; spy reports go stale. They never read your hidden gold, army or defense, and they are not boosted when you grow. They mostly raid for gold, pick targets that look weaker, spy first when unsure, remember who beat them and strike back.</p>
+  <p><b class="goldc">Fair rivals.</b> Rival rulers see only your public profile (name, level, race, calling, land, rank, might, covenant) and what their own spies brought back; spy reports go stale. They never read your hidden gold, army or defense, and they are not boosted when you grow. They mostly raid for gold, pick targets that look weaker, spy first when unsure, remember who beat them and strike back.</p>
   <p><b class="goldc">Quests 📋.</b> More › Quests (or the 📋 badge in the header): 3 daily quests (new at local midnight) and 3 weekly quests (new on Monday), drawn from a pool. Rewards are gold, turns, mana, renown and titles, never XP. Finish all three dailies for the streak bonus (+15% per day in a row, to day 10; titles at 3, 7 and 30 days) and all three weeklies for the set bonus.</p>
   <p><b class="goldc">Achievements 🏵.</b> 47 achievements in Bronze, Silver and Gold tiers (+500 / 2,500 / 8,000 gold). Most Gold tiers grant a title; pick the one shown beside your name in chat, rankings and your profile from My profile or the Achievements screen. Rival rulers earn titles from their records too.</p>
   <p><b class="goldc">Ranks 🔐.</b> Covenants have Leader 👑, Officer ⚔, Elder 📜, Member and Recruit 🌱. Newcomers join as Recruits. The leader can promote, demote, cast out, transfer leadership (the old leader becomes an Officer) and set what each rank may do: invite, accept applications, kick lower ranks, edit the motto and rally during events. Officers may re-rank anyone below Officer. Bot officers answer applications, promote active recruits after two days and rally near the end of events.</p>
   <p><b class="goldc">Covenant tier.</b> Bronze, Silver, Gold, Platinum, Diamond, Mythic, from a covenant score: event placements (1st +300, top 3 +180, top 10 +100, taking part +30, older results fade 5% per event) + 40 per covenant level. Higher tiers add gold income, defence and member slots (Diamond +5, Mythic +10, never above 100). The tier shows on the covenant screen, in rankings and on the covenant chat banner.</p>
+  <p><b class="goldc">Covenant screen ⚜.</b> The header shows your banner, name, tier, level with its XP bar, members/cap and your rank. Below it a sticky bar switches between <b>Overview</b> (stats, motto, the live event, buy a round, perks, tier), <b>Events</b> (goal and leaderboard, donate), <b>Members</b> (applications, the roster with ⋯ to promote, demote or hand over leadership, invites), <b>Chat</b> and <b>Settings</b> (banner, motto, joining rules, rank permissions and Leave Covenant). Leaving needs two steps: open it in Settings, tick "I understand", then confirm. A leader with members chooses an heir first.</p>
+  <p><b class="goldc">Banners 🏴.</b> Every covenant flies a banner: a shape (pennant, swallowtail, flat and more), up to 3 field layers with colours, one of 30 sigils with its own colour, a trim and an optional texture. The leader, and Officers by default (a rank permission), design it in Settings with a live preview. Banners show on the covenant header, the covenant list and search, rankings, members' profiles and covenant chat. Rival covenants get their own banner.</p>
+  <p><b class="goldc">Ravens 🐦.</b> Letters from other rulers. Opening a thread marks it read straight away, and <b>✓ Read all</b> clears every unread raven. Some things always bring a raven: being attacked (the attacker writes, whether they sacked you or were repelled), covenant invitations, trade offers and counter-offers, and letters rulers write to you. Others only sometimes: a ruler whose Shades your Watchers caught, a hex, a covenant answering your application or a ruler answering your invitation, a reply to your trade. Successful spies mostly go unnoticed. Everything still shows in Missives, the Defence log and as a toast.</p>
+  <p><b class="goldc">Covenant-mates 🛡.</b> You cannot attack, spy on or hex a member of your own covenant, and rulers can't either. Mates are greyed out with a "Guild member" label in target lists and search, and their Attack, Spy and Hex buttons are disabled (also on profiles and spy reports). Rulers stay loyal: one leaves only now and then, and only for a stronger covenant (higher level, tier or event standing) with room. Leaders and members of covenants of 5 or fewer never leave that way.</p>
   <p><b class="goldc">Covenant round 🍻.</b> In covenant chat or on the covenant screen, ${n(2500)} gold buys the whole covenant a round: +10% event score and contribution for every member for 3 hours, +2 renown. One round at a time; each ruler can buy once every 3 hours. Members cheer, and bot members sometimes buy one themselves. The Tavern round still works as before.</p>
   <p><b class="goldc">Research takes time ✶.</b> Studies run in real time: Lv 1 takes 2 minutes, Lv 5 about 1 hour, Lv 10 about 5 hours, Lv 15 about 13 hours. One study at a time, with a progress bar and countdown; it finishes even while the app is closed. Stopping a study refunds half its cost. Research gives no XP.</p>
   <p><b class="goldc">Direct trades 🤝.</b> More → Trade → Direct trades, or 🤝 Offer trade on any profile. Offer gold, food, mana or any equipment piece (all four units, every tier) and ask for anything back. Bots answer by raven after a few minutes (longer if offline): accept, decline or counter, up to 3 rounds. They judge by market price, what they need, their personality and how they feel about you, and they never see your stores. Bots also send you offers: Accept, Decline or Counter them. Your side sits in escrow until the deal is done and comes back on a decline or expiry (12 h for yours, 8 h for theirs). A deal pays a 3% caravan toll, uses one caravan slot and your daily caravan limits, and travels by caravan with the usual raid risk (an escort costs 5%). Declining annoys some rulers; others shrug.</p>
@@ -7650,7 +8028,7 @@ window.EG = {
     tick() { S.E.W.epoch -= CFG.TICK_MS; return tickLoop(); },
     flush() { const now = Date.now(); for (const p of S.E.W.pending) p.due = Math.min(p.due, now); const r = S.E.processPending(Date.now()); render(); return r; },
     go, render, save: () => save(true), errors: S.errors,
-    sound: () => ({ state: Sound.state, settings: Sound.settings }), store: () => ({ ...Store.stats }), report: id => showReport(S.E.W.reports[id]), mug: mugToast
+    sound: () => ({ state: Sound.state, settings: Sound.settings }), store: () => ({ ...Store.stats }), report: id => showReport(S.E.W.reports[id]), mug: mugToast, profile: id => profile(id)
   }
 };
 
